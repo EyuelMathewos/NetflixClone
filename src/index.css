@@ -11,3 +11,32 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.right {
+  float: right;
+  width: 130px;
+  margin-right: 325px;
+}
+.left {
+  float: left;
+  
+}
+.user{
+  color:white;
+  margin-left: 10px;
+}
+.headerLeft{
+    float:left;
+    width:250px;
+    margin-left: 40px;
+}
+.player-wrapper {
+  position: relative;
+  padding-top: 56.25% /* Player ratio: 100 / (1280 / 720) */
+}
+
+.react-player {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
