@@ -27,7 +27,6 @@ import four from './img/four.jpg'
 import five from './img/five.jpg'
 import six from './img/six.jpg'
 import Slider from './slider/Slider.js'
-import Card from './slider/Slider.js'
 import images from './slider/images'
 const content = [one, two, three, four, five, six]
 export class home2 extends React.Component {
@@ -127,6 +126,7 @@ export class home2 extends React.Component {
           ))}
 
 </ContentRow> */}
+<Slider slides={images} />
 <Footer></Footer>
 </Container>
 

@@ -34,6 +34,14 @@ import rightArrow from '../img/right-arrow.svg'
 //     {direction === 'right' ? <img src={rightArrow} /> : <img src={leftArrow} />}
 //   </div>
 // )
+const SImage=styled.img`
+height: 100%;
+width: ${props => props.width}px;
+background-image: url('${props => props.content}');
+background-size: cover;
+background-repeat: no-repeat;
+background-position: center;     
+`;
 
 const Arrow = styled.div`
       display: flex;
@@ -43,7 +51,9 @@ const Arrow = styled.div`
       height: 50px;
       width: 50px;
       justify-content: center;
-      background: white;
+      background-image: url('${props => props.direction === 'right' ? rightArrow  : leftArrow}');
+      background-repeat: no-repeat;
+      background-position: center;
       border-radius: 50%;
       cursor: pointer;
       align-items: center;
@@ -57,6 +67,6 @@ const Arrow = styled.div`
           outline: 0;
         }
       }
-      {direction === 'right' ? <img src={rightArrow} /> : <img src={leftArrow} />}
+
 `;
 export default Arrow

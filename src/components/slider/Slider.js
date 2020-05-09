@@ -2,10 +2,8 @@ import React, { useState, useEffect, useRef } from 'react'
 import styled, { css } from 'styled-components';
 import SliderContent from './SliderContent'
 import Slide from './Slide'
-import Card from './Slide'
-import { CaretPrevious, CaretNext } from 'grommet-icons';
 import Arrow from './Arrow'
-// import Dots from './Dots'
+import Dots from './Dots'
 
 const SliderCSS = styled.div`
   position: relative;
@@ -107,22 +105,22 @@ const Slider = props => {
     })
   }
 
-  const nextSlide = () =>{
+  const nextSlide = () =>
     setState({
       ...state,
       translate: translate + getWidth(),
       activeSlide: activeSlide === slides.length - 1 ? 0 : activeSlide + 1
     })
-  }
-  const prevSlide = () =>{
+
+  const prevSlide = () =>
     setState({
       ...state,
       translate: 0,
-      activeSlide: activeSlide === 0 ? slides.length - 1 : activeSlide - 1
+      activeSlide: activeSlide === 0 ? slides.length - 1  : activeSlide - 1
     })
-  }
+
   return (
-    <SliderCSS >
+    <SliderCSS>
       <SliderContent
         translate={translate}
         transition={transition}
@@ -130,19 +128,16 @@ const Slider = props => {
       >
         {_slides.map((_slide, i) => (
           <Slide width={getWidth()} key={_slide + i} content={_slide} />
-
         ))}
       </SliderContent>
-      {/* <Arrow direction="left" onClick={prevSlide()} />
-      <Arrow direction="right" onclick={nextSlide} /> */}
-       {/* <CaretPrevious  handleClick={prevSlide} />
-      <CaretNext handleClick={nextSlide} /> */}
 
-      {/* <Dots slides={slides} activeSlide={activeSlide} />  */}
-      </SliderCSS>
+      <Arrow direction="left" onClick={prevSlide} />
+      <Arrow direction="right" onClick={nextSlide} />
+
+      <Dots slides={slides} activeSlide={activeSlide} />
+    </SliderCSS>
   )
 }
-
 
 
 
