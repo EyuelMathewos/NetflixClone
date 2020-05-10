@@ -17,7 +17,7 @@ const Dots = styled.div`
       align-items: center;
       justify-content: center;
       ${props => props.slides.map((slide, i) => (
-        <Dot key={props => props.slide} active={props => props.activeSlide === i} />
+        <Dot key={slide} active={props => props.activeSlide === i} />
       ))}
     `
 

@@ -89,13 +89,13 @@ const Slider = props => {
   const smoothTransition = () => {
     let _slides = []
 
-    // We're at the last slide.
-    if (activeSlide === slides.length - 1)
-      _slides = [slides[slides.length - 2], lastSlide, firstSlide]
-    // We're back at the first slide. Just reset to how it was on initial render
-    else if (activeSlide === 0) _slides = [lastSlide, firstSlide, secondSlide]
-    // Create an array of the previous last slide, and the next two slides that follow it.
-    else _slides = slides.slice(activeSlide - 1, activeSlide + 2)
+    // // We're at the last slide.
+    // if (activeSlide === slides.length - 1)
+    //   _slides = [slides[slides.length - 2], lastSlide, firstSlide]
+    // // We're back at the first slide. Just reset to how it was on initial render
+    // else if (activeSlide === 0) _slides = [lastSlide, firstSlide, secondSlide]
+    // // Create an array of the previous last slide, and the next two slides that follow it.
+    // else _slides = slides.slice(activeSlide - 1, activeSlide + 2)
 
     setState({
       ...state,
@@ -105,20 +105,30 @@ const Slider = props => {
     })
   }
 
-  const nextSlide = () =>
+  const nextSlide = () =>{
     setState({
       ...state,
-      translate: translate + getWidth(),
-      activeSlide: activeSlide === slides.length - 1 ? 0 : activeSlide + 1
+      translate:  activeSlide ==2 ? 0:translate + getWidth() ,
+      activeSlide: activeSlide == slides.length - 1 ? 0 : activeSlide + 1
     })
+    console.log("Next slide");
+    console.log(activeSlide);
+  }
 
-  const prevSlide = () =>
+
+  const prevSlide = () =>{
     setState({
       ...state,
-      translate: 0,
-      activeSlide: activeSlide === 0 ? slides.length - 1  : activeSlide - 1
+      translate: translate - getWidth(),
+      activeSlide: activeSlide == 0 ? slides.length - 1  : activeSlide - 1
     })
+    console.log("prev slide");
+    console.log(activeSlide);
+  }
+    
 
+
+  
   return (
     <SliderCSS>
       <SliderContent
@@ -133,8 +143,8 @@ const Slider = props => {
 
       <Arrow direction="left" onClick={prevSlide} />
       <Arrow direction="right" onClick={nextSlide} />
-
-      <Dots slides={slides} activeSlide={activeSlide} />
+{/* 
+      <Dots slides={slides} activeSlide={activeSlide} /> */}
     </SliderCSS>
   )
 }

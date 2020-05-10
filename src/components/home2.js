@@ -126,7 +126,7 @@ export class home2 extends React.Component {
           ))}
 
 </ContentRow> */}
-<Slider slides={images} />
+<Slider slides={content} />
 <Footer></Footer>
 </Container>
 
