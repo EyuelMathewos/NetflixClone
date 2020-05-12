@@ -23,6 +23,8 @@ export  const  Container  =  styled.div`
 
 export const NavBrand = styled(Link)`
     flex-grow: 1;
+    font-family: Roboto ,Dancing Script,cursive, sans-serif;
+    font-weight: bold;
     font-size: 24px;
     font-weight: 700;
     color: #FF2401;
@@ -58,3 +60,23 @@ export const NavItemButton = styled(NavItem)`padding: 10px 10px;
             color: white;
         `}
     `;
+ export const Title = styled.h2`
+    padding-left: 20px;
+    margin: 8px 0 2px;
+    font-family: Helvetica ,Roboto ,Dancing Script,cursive, sans-serif;
+    font-weight: bold;
+    font-size:16pt;
+    color: #FF2401;
+  `;
+ export const Wrapper = styled.section`
+  padding:2px;
+  background: #333;
+`;
+
+export const Icon = styled.div`
+      height: 50px;
+      width: 50px;
+      background-image: url('${props => props.content}');
+      background-repeat: no-repeat;
+      background-position: center;
+`;

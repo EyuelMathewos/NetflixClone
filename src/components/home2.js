@@ -3,7 +3,9 @@ import  {  Container, Nav ,
   NavBrand,
   NavItems,
   NavItem,
-  NavItemButton  }  from  "./Container";
+  NavItemButton, 
+  Title,
+  Wrapper  }  from  "./Container";
 import '../index.css';
 
 import { SplitImg, Split, SplitTitle, Synopsis } from "./Split.js";
@@ -26,9 +28,14 @@ import three from './img/three.jpg'
 import four from './img/four.jpg'
 import five from './img/five.jpg'
 import six from './img/six.jpg'
+import seven from './img/episodeone.jpg'
+import eight from './img/episodetwo.jpg'
+import nine from './img/episodethree.jpg'
+import ten from './img/episodefour.jpg'
+import eleven from './img/one.jpg'
 import Slider from './slider/Slider.js'
 import images from './slider/images'
-const content = [one, two, three, four, five, six]
+const content = [one, two, three, four, five, six, seven,eight,nine,ten,eleven]
 export class home2 extends React.Component {
     constructor(props) {
         super(props);
@@ -42,7 +49,7 @@ export class home2 extends React.Component {
     return(
       <Container>
 <Nav>
-            <NavBrand to="/">Cool Product</NavBrand>
+            <NavBrand to="/">Netflix</NavBrand>
             <NavItems>
                 <NavItem to="/pricing">Pricing</NavItem>
                 <NavItem>Docs</NavItem>
@@ -121,12 +128,17 @@ export class home2 extends React.Component {
               data-img={img}
             >
 
-              {/* <img src={img} /> */}
-            {/* </SliderContent>
+              <img src={img} />
+             </SliderContent>
           ))}
 
 </ContentRow> */}
+<Wrapper>
+<Title>Action & Adventure</Title></Wrapper>
 <Slider slides={content} />
+<Wrapper>
+<Title>New Relases</Title></Wrapper>
+<Slider slides={images} />
 <Footer></Footer>
 </Container>
 

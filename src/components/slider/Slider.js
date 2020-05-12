@@ -4,13 +4,15 @@ import SliderContent from './SliderContent'
 import Slide from './Slide'
 import Arrow from './Arrow'
 import Dots from './Dots'
-
+import {Icon} from '../Container'
+import leftArrow from '../img/left-arrow.svg'
 const SliderCSS = styled.div`
+  display: flex;
   position: relative;
-  height: 100vh;
+  height: 300px;
   width: 100vw;
   margin: 0 auto;
-  overflow: hidden;
+  overflow-x: scroll;
   white-space: nowrap;
 `;
 const getWidth = () => window.innerWidth
@@ -23,13 +25,14 @@ const Slider = props => {
 
   const firstSlide = slides[0]
   const secondSlide = slides[1]
+  const fourthSlide = slides[2]
   const lastSlide = slides[slides.length - 1]
 
   const [state, setState] = useState({
-    activeSlide: 0,
-    translate: getWidth(),
+    activeSlide: 4,
+    translate: 0,
     transition: 0.45,
-    _slides: [lastSlide, firstSlide, secondSlide]
+    _slides: slides
   })
 
   const { activeSlide, translate, _slides, transition } = state
@@ -104,22 +107,24 @@ const Slider = props => {
       translate: getWidth()
     })
   }
-
+//translate:  translate<(slides.length-1)*300? 0 : translate + 300,
   const nextSlide = () =>{
     setState({
       ...state,
-      translate:  activeSlide ==2 ? 0:translate + getWidth() ,
+      translate:  translate<(slides.length - 4)*300?translate+300:translate,
       activeSlide: activeSlide == slides.length - 1 ? 0 : activeSlide + 1
     })
     console.log("Next slide");
     console.log(activeSlide);
+    console.log(getWidth());
+
   }
 
 
   const prevSlide = () =>{
     setState({
       ...state,
-      translate: translate - getWidth(),
+      translate: translate - 300,
       activeSlide: activeSlide == 0 ? slides.length - 1  : activeSlide - 1
     })
     console.log("prev slide");
@@ -138,7 +143,9 @@ const Slider = props => {
       >
         {_slides.map((_slide, i) => (
           <Slide width={getWidth()} key={_slide + i} content={_slide} />
-        ))}
+        ))
+        }
+        {console.log(_slides)}
       </SliderContent>
 
       <Arrow direction="left" onClick={prevSlide} />
