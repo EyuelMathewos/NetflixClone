@@ -66,7 +66,7 @@ export const NavItemButton = styled(NavItem)`padding: 10px 10px;
     font-family: Helvetica ,Roboto ,Dancing Script,cursive, sans-serif;
     font-weight: bold;
     font-size:16pt;
-    color: #FF2401;
+    color: #ffffff;
   `;
  export const Wrapper = styled.section`
   padding:2px;

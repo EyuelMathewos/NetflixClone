@@ -6,6 +6,7 @@ import Arrow from './Arrow'
 import Dots from './Dots'
 import {Icon} from '../Container'
 import leftArrow from '../img/left-arrow.svg'
+
 const SliderCSS = styled.div`
   display: flex;
   position: relative;
@@ -132,7 +133,12 @@ const Slider = props => {
   }
     
 
+  const ref = useRef(null);
+  
 
+  const scroll = (scrollOffset) => {
+    ref.current.scrollLeft += scrollOffset;
+  };
   
   return (
     <SliderCSS>
@@ -140,6 +146,7 @@ const Slider = props => {
         translate={translate}
         transition={transition}
         width={getWidth() * _slides.length}
+        ref={ref}
       >
         {_slides.map((_slide, i) => (
           <Slide width={getWidth()} key={_slide + i} content={_slide} />
@@ -148,8 +155,8 @@ const Slider = props => {
         {console.log(_slides)}
       </SliderContent>
 
-      <Arrow direction="left" onClick={prevSlide} />
-      <Arrow direction="right" onClick={nextSlide} />
+      <Arrow direction="left" onClick={() => scroll(-900)} />
+      <Arrow direction="right" onClick={() => scroll(+900)} />
 {/* 
       <Dots slides={slides} activeSlide={activeSlide} /> */}
     </SliderCSS>
