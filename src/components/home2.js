@@ -49,12 +49,12 @@ export class home2 extends React.Component {
     return(
       <Container>
 <Nav>
-            <NavBrand to="/">Movie</NavBrand>
+            <NavBrand to="/">Netflix</NavBrand>
             <NavItems>
-                <NavItem>Pricing</NavItem>
-                <NavItem>Docs</NavItem>
-                <NavItemButton>Log in</NavItemButton>
-                <NavItemButton>Get Started For Free</NavItemButton>
+                <NavItem to="/">Pricing</NavItem>
+                <NavItem to="/">Docs</NavItem>
+                <Button>Log in</Button>
+                <Button>Get Started For Free</Button>
             </NavItems>
         </Nav>
         <Split>

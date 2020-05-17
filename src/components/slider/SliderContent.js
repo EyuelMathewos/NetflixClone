@@ -23,5 +23,16 @@ const SliderContent=styled.div`
       display: flex;
       background-color: #333;
       overflow-x: auto;
+      overflow-y: hidden;
+      scroll-behavior: smooth;
+      ::-webkit-scrollbar {
+        width: 0px;  /* Remove scrollbar space */
+        background: transparent;  /* Optional: just make scrollbar invisible */
+        display: none;
+    }
+    /*FireFox*/
+  scrollbar-width: none;
+  /*IE10+*/
+  -ms-overflow-style: -ms-autohiding-scrollbar;
     `;
 export default SliderContent

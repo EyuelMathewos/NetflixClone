@@ -7,7 +7,7 @@ export  const  Container  =  styled.div`
 
  export const Nav = styled.nav`
     display: flex;
-    padding: 20px;
+    padding: 20px 0 20px 0;
     align-items: center;
     background-color: #333;
     width: 100%;
@@ -29,6 +29,7 @@ export const NavBrand = styled(Link)`
     font-weight: 700;
     color: #FF2401;
     text-decoration: none;
+    padding-left: 20px;
 `;
 
 export const NavItems = styled.ul`list-style: none;

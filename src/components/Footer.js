@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
   export const Footer = styled.nav`
   display: flex;
-  padding: 20px;
+  padding: 20px 0 20px 0;
   align-items: center;
   background-color: #333;
   width: 100%;
