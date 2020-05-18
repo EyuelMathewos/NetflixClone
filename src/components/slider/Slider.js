@@ -8,7 +8,6 @@ import {Icon} from '../Container'
 import leftArrow from '../img/left-arrow.svg'
 
 const SliderCSS = styled.div`
-  display: flex;
   position: relative;
   height: 300px;
   width: 100vw;

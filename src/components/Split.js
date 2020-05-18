@@ -13,7 +13,7 @@ top:
 
 export const Synopsis= styled.div`
   padding-top: 200px;
-  padding-left: 60px;
+  padding-left: 20px;
   max-width: 500px;
   color: white;`;
 

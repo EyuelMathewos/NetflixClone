@@ -51,10 +51,10 @@ export class home2 extends React.Component {
 <Nav>
             <NavBrand to="/">Netflix</NavBrand>
             <NavItems>
-                <NavItem to="/">Pricing</NavItem>
-                <NavItem to="/">Docs</NavItem>
-                <Button>Log in</Button>
-                <Button>Get Started For Free</Button>
+                {/* <NavItem to="/">Pricing</NavItem>
+                <NavItem to="/">Docs</NavItem> */}
+                <Button primary>Join Now</Button>
+                <Button header>Log in</Button>
             </NavItems>
         </Nav>
         <Split>
@@ -67,15 +67,13 @@ export class home2 extends React.Component {
                     natus quidem laborum beatae ratione accusantium hic illo
                     quas id numquam possimus, similique odit alias.
                 </p>
-                <p>
+                {/* <p>
                     Lorem ipsum dolor sit amet, consectetur adipisicing elit.
                     Error, fugit provident. Fugit, distinctio dolor nesciunt
                     natus quidem laborum beatae ratione accusantium hic illo
                     quas id numquam possimus, similique odit alias.
-                </p>
-            </div>
-            <div>
-            <Button>Play</Button>
+                </p> */}
+                <Button>Play</Button>
             <Button>More info</Button>
             </div>
             </Synopsis>

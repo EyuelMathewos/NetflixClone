@@ -3,13 +3,14 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 
 export  const  Container  =  styled.div`
-    margin: 0  auto;`;
+   position: relative;
+      width: 100%; `;
 
  export const Nav = styled.nav`
     display: flex;
     padding: 20px 0 20px 0;
     align-items: center;
-    background-color: #333;
+    background-color: #181818;
     width: 100%;
     height:25px;
     justify-content: space-between;
@@ -19,6 +20,9 @@ export  const  Container  =  styled.div`
     @media (max-width: 786px) {
         flex-direction: column;
     }
+    @media (max-width: 1024px) {
+        flex-direction: column;
+      }
 `;
 
 export const NavBrand = styled(Link)`
@@ -65,13 +69,13 @@ export const NavItemButton = styled(NavItem)`padding: 10px 10px;
     padding-left: 20px;
     margin: 8px 0 2px;
     font-family: Helvetica ,Roboto ,Dancing Script,cursive, sans-serif;
-    font-weight: bold;
-    font-size:16pt;
+    font-weight: 500;
+    font-size:20px;
     color: #ffffff;
   `;
  export const Wrapper = styled.section`
   padding:2px;
-  background: #333;
+  background: #181818;
 `;
 
 export const Icon = styled.div`
