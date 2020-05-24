@@ -19,8 +19,8 @@ background-repeat: no-repeat;
 background-size: cover;
 background-position: center; 
 flex-shrink: 0;
-width: 300px;
-height: 300px;
+width: ${props => props.width>400?props => props.width/4:props => props.width/3}px;
+height: ${props => props.width>400?props => props.width/5:props => props.width/4}px;
 &:hover {
     transform: scale(1.05);
 }

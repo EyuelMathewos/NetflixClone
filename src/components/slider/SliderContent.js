@@ -18,8 +18,8 @@ import styled, { css } from 'styled-components';
 const SliderContent=styled.div`
       transform: translateX(-${props => props.translate}px);
       transition: transform ease-out ${props => props.transition};
-      height: 300px;
-      width: ${props => props.width}px;
+      height: 100%;
+      width: 100%;
       display: flex;
       background-color: #333;
       overflow-x: auto;

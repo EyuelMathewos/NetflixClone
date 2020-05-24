@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef } from 'react';
 import styled, { css } from 'styled-components';
 import SliderContent from './SliderContent'
 import Slide from './Slide'
@@ -9,8 +9,8 @@ import leftArrow from '../img/left-arrow.svg'
 
 const SliderCSS = styled.div`
   position: relative;
-  height: 300px;
-  width: 100vw;
+  height: ${props => props.width>400?props => props.width/5:props => props.width/4}px;
+  width: 100%;
   margin: 0 auto;
   overflow-x: scroll;
   white-space: nowrap;
@@ -32,9 +32,20 @@ const Slider = props => {
     activeSlide: 4,
     translate: 0,
     transition: 0.45,
-    _slides: slides
+    _slides: slides,
+    width:window.innerWidth,
+    height:window.innerHeight
   })
-
+  const [width, setWidth] = React.useState(window.innerWidth);
+  const [height, setHeight] = React.useState(window.innerHeight);
+  const updateWidthAndHeight = () => {
+    console.log("the size is changeing or not")
+    console.log(window.innerWidth)
+    setWidth(window.innerWidth-200);
+    setHeight(window.innerHeight);
+    console.log("the size is changeing or not after")
+    console.log(window.innerWidth)
+  };
   const { activeSlide, translate, _slides, transition } = state
 
   const autoPlayRef = useRef()
@@ -104,7 +115,8 @@ const Slider = props => {
       ...state,
       _slides,
       transition: 0,
-      translate: getWidth()
+      translate: getWidth(),
+      screenWidth: window.innerWidth
     })
   }
 //translate:  translate<(slides.length-1)*300? 0 : translate + 300,
@@ -138,24 +150,29 @@ const Slider = props => {
   const scroll = (scrollOffset) => {
     ref.current.scrollLeft += scrollOffset;
   };
+  useEffect(() => {
+    window.addEventListener("resize", updateWidthAndHeight);
+    return () => window.removeEventListener("resize", updateWidthAndHeight);
+});
   
   return (
-    <SliderCSS>
+    <SliderCSS
+    width={width}>
       <SliderContent
         translate={translate}
         transition={transition}
-        width={getWidth() * _slides.length}
         ref={ref}
       >
         {_slides.map((_slide, i) => (
-          <Slide width={getWidth()} key={_slide + i} content={_slide} />
+          <Slide width={width} key={_slide + i} content={_slide} />
         ))
         }
-        {console.log(_slides)}
+        {console.log(window.innerWidth)}
       </SliderContent>
 
       <Arrow direction="left" onClick={() => scroll(-900)} />
       <Arrow direction="right" onClick={() => scroll(+900)} />
+      {/* <div>{`Window width = ${width}`}</div> */}
 {/* 
       <Dots slides={slides} activeSlide={activeSlide} /> */}
     </SliderCSS>
