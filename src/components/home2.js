@@ -9,19 +9,9 @@ import  {  Container, Nav ,
 import '../index.css';
 
 import { SplitImg, Split, SplitTitle, Synopsis } from "./Split.js";
-import computer from './computer.png';
-import {
-  Pricing,
-  PricingCard,
-  PricingTitle,
-  Price,
-  PricingFeatures
-} from './Pricing';
 import { Button } from './Button';
 import {Footer} from './Footer';
-import {ContentRow} from './contentrow';
-import {ContentBlock} from './contentrow';
-import {SliderContent} from './contentrow';
+import NewSlider from './slider/newslider.js'
 import one from './img/one.jpg'
 import two from './img/two.jpg'
 import three from './img/three.jpg'
@@ -67,82 +57,21 @@ export class home2 extends React.Component {
                     natus quidem laborum beatae ratione accusantium hic illo
                     quas id numquam possimus, similique odit alias.
                 </p>
-                {/* <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Error, fugit provident. Fugit, distinctio dolor nesciunt
-                    natus quidem laborum beatae ratione accusantium hic illo
-                    quas id numquam possimus, similique odit alias.
-                </p> */}
-                <Button>Play</Button>
+            <Button>Play</Button>
             <Button>More info</Button>
             </div>
             </Synopsis>
         </Split>
-        {/* <Pricing>
-    <PricingCard>
-        <PricingTitle>Free</PricingTitle>
-        <p>
-            <Price>$0</Price>/month
-        </p>{' '}
-        <PricingFeatures>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-        </PricingFeatures>
-        <Button>Get Started</Button>
-    </PricingCard>
-    <PricingCard>
-        <PricingTitle>Standard</PricingTitle>
-        <p>
-            <Price>$10</Price>/month
-        </p>{' '}
-        <PricingFeatures>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-        </PricingFeatures>
-        <Button primary>Get Started</Button>
-    </PricingCard>
-    <PricingCard>
-        <PricingTitle>Enterprise</PricingTitle>
-        <p>
-            <Price>$100</Price>/month
-        </p>
-        <PricingFeatures>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-            <li>Lorem ipsum</li>
-        </PricingFeatures>
-        <Button>Get Started</Button>
-    </PricingCard>
-</Pricing> */}
-
-     
-{/* <ContentRow>
-
-          {content.map(img => (
-            <SliderContent
-              key={img}
-              data-img={img}
-            >
-
-              <img src={img} />
-             </SliderContent>
-          ))}
-
-</ContentRow> */}
+       
 <Wrapper>
 <Title>Action & Adventure</Title></Wrapper>
-<Slider slides={content} />
+<NewSlider slides={content} />
 <Wrapper>
 <Title>New Relases</Title></Wrapper>
-<Slider slides={images} />
+<NewSlider slides={images}/>
 <Footer></Footer>
 </Container>
 
     );
-
-        
-    
   }
 }

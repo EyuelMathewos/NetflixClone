@@ -6,7 +6,7 @@ background-image: url('${wallpaper}');
 background-repeat: no-repeat;
 background-size: cover;
 width: 100%;
-height: 98vh;
+height: 50%;
 top:
 }
 `;
