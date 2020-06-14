@@ -8,6 +8,7 @@ background-repeat: no-repeat;
 background-size: cover;
 background-position: center; 
 flex-shrink: 0;
+margin:0 10px 0 0;
 width: ${props => props.width>400?props => props.width/4:props => props.width/3}px;
 height: 100%;
 &:hover {

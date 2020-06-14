@@ -13,7 +13,12 @@ import {
 } from 'antd';
 import axios from 'axios';
 import {RightList} from "./list";
+import {Controls} from "./components/video/controls"
+import {Video} from "./components/video/controls"
+import { Button } from './components/Button';
+import {MainContainer} from "./components/video/controls"
 import './index.css';
+
 const { Meta } = Card;
 
 const data =[{"name":"http://localhost:3000/read/5e47f99fb9570d1530799e63"},{"name":"http://localhost:3000/read/5e6df828f86da5030aecead8"},{"name":"http://localhost:3000/read/5e6df87ff86da5030aecf75c"}];
@@ -23,66 +28,36 @@ export class listview extends React.Component {
         this.state = {
           Movielist: []
         };
+        this.ref = React.createRef();
       }
-      // componentDidMount () {
-      //   let component = this;
-      //   axios.get('http://localhost:3000/api/container/Movie/files')
-      //   .then(function (projectResponse) {
-      //     component.setState({ Movielist: projectResponse.data });
-      //     console.log(component.state.Movielist)
-      //     console.log(component.state.Movielist);
-         
-          
-      //   })
-      //   .catch(function (error) {
-      //     console.log(error);
-      //   });
 
+      playVideo() {
+        this.ref.current.play();
+      }
+      pauseVideo (){
+        this.ref.current.pause();
+        return console.log(this.ref.current)
+      };
+      mute (){
+        this.ref.current.muted="true";
+      };
 
-      // }
- 
 
   render() { 
 
     return(
-//         <div class="listview">
-//         <Card
-//     hoverable
-//     style={{ width: 640 }}
-//     cover={<ReactPlayer url='http://localhost:3000/read/5e47f99fb9570d1530799e63' playing controls/>}
-//   >
-//     <Meta title="Europe Street beat" description="www.instagram.com" />
-//   </Card>
 
-//   <Card
-//     hoverable
-//     style={{ width: 640 }}
-//     cover={<ReactPlayer url='http://localhost:3000/read/5e47f99fb9570d1530799e63' playing controls/>}
-//   >
-//     <Meta title="Europe Street beat" description="www.instagram.com" />
-//   </Card>
-  
-//   </div>
+<div>
+<MainContainer>
+        <Video ref={this.ref} src='http://localhost:3000/read/5ed4c1d2f4a75504b38ac6e5'></Video>
+        </MainContainer>
+        <Controls>              
+            <Button onClick={()=>{this.playVideo()}}>play</Button>
+            <Button onClick={()=>{this.pauseVideo()}}>pause</Button>
+            <input type="range" min="1" max="100" value={1} class="slider" id="myRange" ></input>
+        </Controls>
+ </div>
 
-<Row>
-<Col span={12}>
-{/* <ReactPlayer url='http://localhost:3000/read/5e47f99fb9570d1530799e63' width="700px" height="500px"playing controls /> */}
-<div className='player-wrapper'>
-        <ReactPlayer
-          className='react-player'
-          url='http://localhost:3000/read/5e47f99fb9570d1530799e63'
-          controls={true}
-          width='50%'
-          height='50%'
-        />
-      </div>
-</Col>
-<Col span={8}>
-  <div className="right">
-  <RightList/>
-  </div>
-</Col>
-</Row>
 
     );
 

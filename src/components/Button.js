@@ -11,7 +11,7 @@ export const Button = styled.button`
   border: 1px solid white;
 
   ${props => props.primary && css`
-    padding: 4px 10px 4px 10px;
+    padding: 8px 12px;
     background: #FF2401;
     color: white;
     border: 1px solid red;
@@ -24,7 +24,8 @@ export const Button = styled.button`
     border: 1px solid #FF2401;
     font-family: Roboto ,Dancing Script,cursive, sans-serif;
     font-weight: bold;
-    font-size: 12px;
-    width: 50px;
+    font-size: 18px;
+    width: 95px;
+    padding: 8px 12px;
   `}
 `

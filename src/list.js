@@ -73,7 +73,7 @@ export class RightList extends React.Component {
           <Card
           hoverable
           style={{ width: 450 ,backgroundColor:"wight"}}
-          cover={<ReactPlayer url={'http://localhost:3000/read/'+d._id} width="450px" height="360px" />}
+          cover={<ReactPlayer url={'http://localhost:3000/read/'+d._id} width="450px" />}
         >
           <Meta title={d.filename}/>
         </Card>)

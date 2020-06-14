@@ -21,7 +21,7 @@ const SliderContent=styled.div`
       height: 100%;
       width: 100%;
       display: flex;
-      background-color: #333;
+      background-color: #181819;
       overflow-x: auto;
       overflow-y: hidden;
       scroll-behavior: smooth;
