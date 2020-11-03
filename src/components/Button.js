@@ -9,7 +9,7 @@ export const Button = styled.button`
   background: transparent;
   color: white;
   border: 1px solid white;
-
+  outline:none;
   ${props => props.primary && css`
     padding: 8px 12px;
     background: #FF2401;
@@ -19,6 +19,16 @@ export const Button = styled.button`
     font-size: 18px;
     width: 150px;
   `}
+  ${props => props.secondary && css`
+  padding: 4px 0px;
+  background: #fff;
+  color: black;
+  border: 1px solid #fff;
+  font-family: Roboto ,Dancing Script,cursive, sans-serif;
+  font-size: 32px;
+  font-weight: bold;
+  width: 150px;
+`}
   ${props => props.header && css`
     color: #FF2401;
     border: 1px solid #FF2401;

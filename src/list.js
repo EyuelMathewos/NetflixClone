@@ -12,8 +12,10 @@ import {
     Card, Row, Col, List
 } from 'antd';
 import axios from 'axios';
+import {Player} from "./components/video/player"
 import './index.css';
 const { Meta } = Card;
+
 
 const data =[{"name":"http://localhost:3000/read/5e47f99fb9570d1530799e63"},{"name":"http://localhost:3000/read/5e6df828f86da5030aecead8"},{"name":"http://localhost:3000/read/5e6df87ff86da5030aecf75c"}];
 export class RightList extends React.Component {
@@ -73,11 +75,12 @@ export class RightList extends React.Component {
           <Card
           hoverable
           style={{ width: 450 ,backgroundColor:"wight"}}
-          cover={<ReactPlayer url={'http://localhost:3000/read/'+d._id} width="450px" />}
+          cover={<Player src={'http://localhost:3000/read/'+d._id} width="426" height="240" />}
         >
           <Meta title={d.filename}/>
         </Card>)
        })}
+       <Player width="426" height="240" src="http://localhost:3000/read/5ed36e35c80cb808ee742a2b"></Player>
      </div>  
 
 

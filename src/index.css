@@ -19,7 +19,7 @@ code {
 }
 .left {
   float: left;
-  
+  padding:0px 0px 0px 20px ;
 }
 .user{
   color:white;

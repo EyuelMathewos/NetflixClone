@@ -8,7 +8,7 @@ export  const  Container  =  styled.div`
 
  export const Nav = styled.nav`
     display: flex;
-    padding: 20px 0 20px 0;
+    padding: 20px 0px;
     align-items: center;
     background-color: #181818;
     width: 100%;
@@ -33,7 +33,7 @@ export const NavBrand = styled(Link)`
     font-weight: 700;
     color: #FF2401;
     text-decoration: none;
-    padding-left: 20px;
+    paddingLeft: 20px;
 `;
 
 export const NavItems = styled.ul`list-style: none;
@@ -66,7 +66,7 @@ export const NavItemButton = styled(NavItem)`padding: 10px 10px;
         `}
     `;
  export const Title = styled.h2`
-    padding-left: 20px;
+    paddingLeft: 20px;
     margin: 8px 0 2px;
     font-family: Helvetica ,Roboto ,Dancing Script,cursive, sans-serif;
     font-weight: 500;
@@ -78,10 +78,50 @@ export const NavItemButton = styled(NavItem)`padding: 10px 10px;
   background: #181818;
 `;
 
-export const Icon = styled.div`
-      height: 50px;
-      width: 50px;
-      background-image: url('${props => props.content}');
-      background-repeat: no-repeat;
-      background-position: center;
+// const Icon = ({ type, onClick }) => (
+//     <i className={`Icon fa fa-${type} ${type}`} onClick={onClick} />
+//   )
+  
+//   Icon.defaultProps = {
+//     onClick: null
+//   }
+//   export default Icon
+export const LinkS = styled.button`
+  background: Transparent;
+  border: none;
+  &:hover {
+    border: none;
+}
+.LinkS:focus {
+    outline: none;
+    box-shadow: none;
+    border: none;
+  }
 `;
+export const Icon = styled.i`
+font-size: 32px;
+margin-right: 25px;
+color:red;
+
+  ${props => props.secondary && css`
+      //font-size: 32px;
+      margin-right: 25px;
+      color:black;
+  `}
+`;
+
+
+
+
+export const IconWrapper = styled.div`
+    
+    cursor: pointer;
+    position: absolute;
+    right: 0;
+    margin-left:100px
+      `;
+  
+
+
+
+//export default Icon

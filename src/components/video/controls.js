@@ -2,8 +2,8 @@ import styled, { css } from 'styled-components';
 
 export  const  Controls  =  styled.div`
     position: relative;
-    width: 100%;
-    height:40px;
+    width: ${props => props.width}px;
+    height:45px;
     background-color: #181818;
      `;
 
@@ -13,6 +13,13 @@ export  const  Controls  =  styled.div`
      `;
 export const MainContainer = styled.div`
 position: relative;
-width: 700px;
+width: ${props => props.width}px;
+font-size:0;
+background-color:#c;
+top:
 }
 `;
+export const Items = styled.div`
+    position: relative;
+    display: flex;
+    align-items: center;`;

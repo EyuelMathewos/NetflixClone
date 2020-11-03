@@ -5,7 +5,8 @@ import  {  Container, Nav ,
   NavItem,
   NavItemButton, 
   Title,
-  Wrapper  }  from  "./Container";
+  Wrapper, Icon,IconWrapper  }  from  "./Container";
+
 import '../index.css';
 
 import { SplitImg, Split, SplitTitle, Synopsis } from "./Split.js";
@@ -25,6 +26,8 @@ import ten from './img/episodefour.jpg'
 import eleven from './img/one.jpg'
 import Slider from './slider/Slider.js'
 import images from './slider/images'
+import Modal from './Detail/DetailPane'
+import { Grid } from "./Grid/grid"
 const content = [one, two, three, four, five, six, seven,eight,nine,ten,eleven]
 export class home2 extends React.Component {
     constructor(props) {
@@ -45,6 +48,7 @@ export class home2 extends React.Component {
                 <NavItem to="/">Docs</NavItem> */}
                 <Button primary>Join Now</Button>
                 <Button header>Log in</Button>
+                <Icon type="search"/>
             </NavItems>
         </Nav>
         <Split>
@@ -59,17 +63,19 @@ export class home2 extends React.Component {
                 </p>
             <Button>Play</Button>
             <Button>More info</Button>
+
             </div>
             </Synopsis>
         </Split>
-       
-<Wrapper>
-<Title>Action & Adventure</Title></Wrapper>
+        {/* <DetailPaneCSS>    <IconWrapper><Icon secondary className="fa fa-times"/> </IconWrapper>  </DetailPaneCSS>   */}
+
 <NewSlider slides={content} />
 <Wrapper>
 <Title>New Relases</Title></Wrapper>
 <NewSlider slides={images}/>
+<Modal/>
 <Footer></Footer>
+{/* <Grid/> */}
 </Container>
 
     );

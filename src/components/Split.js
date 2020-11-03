@@ -6,14 +6,14 @@ background-image: url('${wallpaper}');
 background-repeat: no-repeat;
 background-size: cover;
 width: 100%;
-height: 50%;
+height: 100%;
 top:
 }
 `;
 
 export const Synopsis= styled.div`
   padding-top: 200px;
-  padding-left: 20px;
+  paddingLeft: 20px;
   max-width: 500px;
   color: white;`;
 

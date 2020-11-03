@@ -16,6 +16,7 @@ import styled, { css } from 'styled-components';
 // )
 
 const SliderContent=styled.div`
+position: relative;
       transform: translateX(-${props => props.translate}px);
       transition: transform ease-out ${props => props.transition};
       height: 100%;
