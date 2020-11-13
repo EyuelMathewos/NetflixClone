@@ -2,7 +2,7 @@ import styled from "styled-components";
 import wallpaper from '.././image.jpg';
 export const Split = styled.div`
 position: relative;
-background-image: url('${wallpaper}');
+background-image: url('${props => props.content}');
 background-repeat: no-repeat;
 background-size: cover;
 width: 100%;

@@ -3,6 +3,8 @@ import styled, { css } from 'styled-components';
 import {Icon} from '.././Container';
 import { SplitImg, Split, SplitTitle, Synopsis } from "./Split.js";
 import { Button } from '.././Button';
+import { connect } from 'react-redux';
+import updateModal from '../../redux/Action/modalAction';
 const DetailPane = styled.div`
   //height: 475px;
   //background: #00000094;
@@ -11,7 +13,13 @@ const DetailPane = styled.div`
   border: 2px solid white;
   z-index: 99;
   color: white;
-  
+  @keyframes fadein {
+    from {
+      opacity:0;
+    }
+    to {
+      opacity:1;
+    }
   
 `;
 const ModalDiv = styled.div`
@@ -93,12 +101,12 @@ class Modal extends React.Component {
     }
   
     toggleHoverState() {
-      
-
+      console.log("this is state form redux open")
+console.log(this.props.modal.open);
         this.setState({
           modalState: !this.state.modalState
         });
-      
+        this.props.updateModal(!this.props.modal.open)
     };  
 
 
@@ -114,7 +122,9 @@ class Modal extends React.Component {
         this.setState({
           modalState: !this.state.modalState
         });
+        this.props.updateModal(!this.props.modal.open)
        }
+
       //  else{
       //    alert("this is the other code");
       //    this.setState({
@@ -138,14 +148,14 @@ class Modal extends React.Component {
       return (
        
         <div>
-          <IconM secondary className="fa fa-play-circle" aria-hidden="true" onClick={()=>{this.toggleHoverState()}}/>
+          {/* <IconM secondary className="fa fa-play-circle" aria-hidden="true" onClick={()=>{this.toggleHoverState()}}/> */}
         {/* <button onClick={()=>{this.toggleHoverState()}}>Hello world</button> */}
-        {this.state.modalState&&
+        {this.props.modal.open&&
         <DetailPane>
 <ModalDiv ref={this.ref} onClick={()=>{this.handleClickOutside()}}>
   <ModalContent>
 
-  <Split>
+  <Split content={this.props.modal.content}>
   <IconM className="fa fa-times-circle" aria-hidden="true" onClick={()=>{this.toggleHoverState()}}/>
         <Synopsis>
             <div>
@@ -170,4 +180,16 @@ class Modal extends React.Component {
    
       )}
     }
-    export default Modal
+    const MapStateToProps = (state) => {
+      return {
+        modal: state.modal
+    };
+    };
+    const MapDispatchToProps = (dispatch) => {
+      return{
+        updateModal: (m)=> dispatch(updateModal(m))
+      }
+        
+      
+    };
+    export default connect(MapStateToProps, MapDispatchToProps)(Modal);

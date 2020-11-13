@@ -3,6 +3,9 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { LinkS, Wrapper, Title} from '.././Container';
 import Modal from '../Detail/DetailPane'
+import { connect } from 'react-redux';
+import updateMovies from '../../redux/Action/addMovie'
+import updateModal from '../../redux/Action/modalAction'
 //const Modaltype = <Modal status={true}/>;
 export const Slide = styled.div`
 background-image: url('${props => props.content}');
@@ -94,16 +97,23 @@ class SlideItem extends React.Component {
         return (
               <Wrapper><Title>{this.props.catagory}</Title></Wrapper>,
             <Slide width={this.props.width} key={this.props.key} content={this.props.content} onMouseEnter={this.handleMouseHover}
-                       onMouseLeave={this.handleMouseHover}>
-                       {this.state.isHovering &&<IconDiv>
-                                        <Icon className="fa fa-play-circle" aria-hidden="true" onClick={()=>{console.log(this.state)}}/>        
-                                        {/* <LinkS onClick={()=>{console.log(this.props.content)}}> */}
-                                        {/* <Icon secondary className="fa fa-info-circle" onClick={()=>{console.log(this.props.content)}}  /> */}
-                                        {/* </LinkS> */}
-                                      </IconDiv>}
+                       onMouseLeave={this.handleMouseHover} onClick={()=>{this.props.updateModal({"open":true,"content":this.props.content})}}>   
             </Slide>
+            
         )
     }
 
 }
-export default SlideItem
+const MapStateToProps = (state) => {
+  return {
+    modal: state.modal
+};
+};
+const MapDispatchToProps = (dispatch) => {
+  return{
+    updateModal: (m)=> dispatch(updateModal(m))
+  }
+    
+  
+};
+export default connect(MapStateToProps, MapDispatchToProps)(SlideItem);

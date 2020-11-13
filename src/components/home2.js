@@ -61,8 +61,8 @@ export class home2 extends React.Component {
                     natus quidem laborum beatae ratione accusantium hic illo
                     quas id numquam possimus, similique odit alias.
                 </p>
-            <Button>Play</Button>
-            <Button>More info</Button>
+            <Button dark>Play</Button>
+            <Button dark>More info</Button>
 
             </div>
             </Synopsis>

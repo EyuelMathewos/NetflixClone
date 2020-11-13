@@ -38,4 +38,14 @@ export const Button = styled.button`
     width: 95px;
     padding: 8px 12px;
   `}
+  ${props => props.dark && css`
+  //padding: 4px 0px;
+  background: #1f1f1f;
+  color: white;
+  border: 1px solid #1f1f1f;
+  font-family: Roboto ,Dancing Script,cursive, sans-serif;
+  //font-size: 18px;
+  //font-weight: bold;
+  //width: 150px;
+`}
 `

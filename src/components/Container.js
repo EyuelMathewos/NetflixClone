@@ -33,7 +33,7 @@ export const NavBrand = styled(Link)`
     font-weight: 700;
     color: #FF2401;
     text-decoration: none;
-    paddingLeft: 20px;
+    padding-left: 20px;
 `;
 
 export const NavItems = styled.ul`list-style: none;
