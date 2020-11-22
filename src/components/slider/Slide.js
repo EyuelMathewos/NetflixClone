@@ -14,13 +14,13 @@ background-size: cover;
 background-position: center; 
 flex-shrink: 0;
 width: ${props => props.width>400?props => props.width/4:props => props.width/3}px;
-height: 100%;
+//height: 100%;
 margin: 40px 10px 0px 0px;
 transition: 0.4s;
 transition-delay: 0.2s;
 &:hover {
-  width: 40vw;
-  height: 22vw;
+  width: 32vw;
+  //height: 22vw;
   opacity:1;
   transition: 0.4s;
   transition-delay: 0.4s;

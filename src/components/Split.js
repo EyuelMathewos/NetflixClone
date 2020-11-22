@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import wallpaper from './image.jpg';
+//import wallpaper from './img/projectpowerfeature.jpg'
 export const Split = styled.div`
 position: relative;
 background-image: url('${wallpaper}');
@@ -24,6 +25,6 @@ export const SplitTitle = styled.h1`
 `;
 
 export const SplitImg = styled.img`
-  height: 100%;
   width: 100%;
+  height: auto;
 `;

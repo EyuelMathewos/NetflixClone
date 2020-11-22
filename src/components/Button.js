@@ -9,43 +9,23 @@ export const Button = styled.button`
   background: transparent;
   color: white;
   border: 1px solid white;
-  outline:none;
+
   ${props => props.primary && css`
-    padding: 8px 12px;
-    background: #FF2401;
+    padding: 6px 12px;
+    background: #e50914;
     color: white;
     border: 1px solid red;
     font-family: Roboto ,Dancing Script,cursive, sans-serif;
-    font-size: 18px;
-    width: 150px;
+    font-size: 15px;
+    width: 112px;
   `}
-  ${props => props.secondary && css`
-  padding: 4px 0px;
-  background: #fff;
-  color: black;
-  border: 1px solid #fff;
-  font-family: Roboto ,Dancing Script,cursive, sans-serif;
-  font-size: 32px;
-  font-weight: bold;
-  width: 150px;
-`}
   ${props => props.header && css`
     color: #FF2401;
     border: 1px solid #FF2401;
     font-family: Roboto ,Dancing Script,cursive, sans-serif;
     font-weight: bold;
-    font-size: 18px;
+    font-size: 15px;
     width: 95px;
-    padding: 8px 12px;
+    padding: 6px 12px;
   `}
-  ${props => props.dark && css`
-  //padding: 4px 0px;
-  background: #1f1f1f;
-  color: white;
-  border: 1px solid #1f1f1f;
-  font-family: Roboto ,Dancing Script,cursive, sans-serif;
-  //font-size: 18px;
-  //font-weight: bold;
-  //width: 150px;
-`}
 `

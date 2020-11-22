@@ -27,6 +27,9 @@ import eleven from './img/one.jpg'
 import Slider from './slider/Slider.js'
 import images from './slider/images'
 import Modal from './Detail/DetailPane'
+import {movie} from './movie.js';
+//import titleimg from './img/powerprojecttitle.png'
+//import netflixlogo from './img/netflixlogo.png'
 import { Grid } from "./Grid/grid"
 const content = [one, two, three, four, five, six, seven,eight,nine,ten,eleven]
 export class home2 extends React.Component {
@@ -42,24 +45,22 @@ export class home2 extends React.Component {
     return(
       <Container>
 <Nav>
-            <NavBrand to="/">Netflix</NavBrand>
+            <NavBrand ></NavBrand>
             <NavItems>
                 {/* <NavItem to="/">Pricing</NavItem>
                 <NavItem to="/">Docs</NavItem> */}
-                <Button primary>Join Now</Button>
-                <Button header>Log in</Button>
+                <Button primary>JOIN NOW</Button>
+                <Button header>SIGN IN</Button>
                 <Icon type="search"/>
             </NavItems>
         </Nav>
         <Split>
         <Synopsis>
             <div>
-             <SplitTitle>Cool, Catchy Slogan</SplitTitle>
+              <SplitImg ></SplitImg>
+             <SplitTitle>Project Power</SplitTitle>
                 <p>
-                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                    Error, fugit provident. Fugit, distinctio dolor nesciunt
-                    natus quidem laborum beatae ratione accusantium hic illo
-                    quas id numquam possimus, similique odit alias.
+                An ex-soldier, a teen and a cop collide in New Orleans as they hunt for the source behind a dangerous new pill that grants users temporary superpowers.
                 </p>
             <Button dark>Play</Button>
             <Button dark>More info</Button>
@@ -68,11 +69,18 @@ export class home2 extends React.Component {
             </Synopsis>
         </Split>
         {/* <DetailPaneCSS>    <IconWrapper><Icon secondary className="fa fa-times"/> </IconWrapper>  </DetailPaneCSS>   */}
-
-<NewSlider slides={content} />
+        
+{/* <NewSlider slides={movie} /> */}
 <Wrapper>
 <Title>New Relases</Title></Wrapper>
-<NewSlider slides={images}/>
+<NewSlider slides={movie}/>
+
+<Wrapper>
+<Title>Action</Title></Wrapper>
+<NewSlider slides={movie}/>
+<Wrapper>
+<Title>Action & Adventure</Title></Wrapper>
+<NewSlider slides={movie}/>
 <Modal/>
 <Footer></Footer>
 {/* <Grid/> */}

@@ -39,6 +39,7 @@ const Info = styled.span`
 border-right:1px solid #a3a3a3;
 margin-right:9px;
 padding-right: 11px;
+font-size: 0.9vw;
 `;
 
   const ModalContent = styled.div`
@@ -49,7 +50,7 @@ padding-right: 11px;
   //padding: 20px;
   //border: 1px solid #888;
   width: 100%;
-  height:500px;
+  height: ${ props => props.height/2}px;
 `;
 const IconM = styled.i`
   //color: #fbf6f696;
@@ -69,7 +70,8 @@ class Modal extends React.Component {
   constructor(props) {
     super(props);
    this.state = {
-      modalState: false
+      modalState: false,
+      height: window.innerHeight,
     };
     this.ref = React.createRef();
    // this.handleMouseHover = this.handleMouseHover.bind(this);
@@ -153,19 +155,19 @@ console.log(this.props.modal.open);
         {this.props.modal.open&&
         <DetailPane>
 <ModalDiv ref={this.ref} onClick={()=>{this.handleClickOutside()}}>
-  <ModalContent>
+  <ModalContent height={this.state.height}>
 
-  <Split content={this.props.modal.content}>
+  <Split content={this.props.modal.content.featureimage}>
   <IconM className="fa fa-times-circle" aria-hidden="true" onClick={()=>{this.toggleHoverState()}}/>
         <Synopsis>
             <div>
-             <SplitTitle>Cool, Catchy Slogan</SplitTitle>
-          <Info>Year</Info>
-          <Info>11+</Info>
-          <Info>1h37m</Info>
-          <a>movietype</a>
-          <p>Fueled by memories of her mother, resourceful Fei Fei builds a rocket to the moon on a mission to prove the existence of a legendary moon goddess.</p>
-
+             <SplitTitle>{this.props.modal.content.title}</SplitTitle>
+          <Info>{this.props.modal.content.year}</Info>
+          <Info>+11</Info>
+          <Info>{this.props.modal.content.year}</Info>
+          <a style={{"font-size": "0.9vw"}}s>{this.props.modal.content.movietype}</a>
+          <p style={{"font-size": "0.9vw"}}>{this.props.modal.content.about}</p>
+         
                 <Button secondary><Icon secondary className="fa fa-play" aria-hidden="true"/>Play</Button>
             </div>
             </Synopsis>

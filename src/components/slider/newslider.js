@@ -6,12 +6,15 @@ import Arrow from './Arrow';
 import {Icon} from '.././Container'
 const SliderCSS = styled.div`
   position: relative;
-  height: ${props => props.width>400?props => props.width/5:props => props.width/4}px;
+  height: ${props => props.width>400?props => props.width/6:props => props.width/4}px;
   width: 100%;
   // margin: auto;
   overflow-x: hidden;
   white-space: nowrap;
   transition: all 0ms ease 0s; transform: translate3d(0px, 0px, 0px);
+  &:hover {
+      background-color: #333;
+     }
 `;
 const IconDiv = styled.div`
 position: relative;
@@ -72,7 +75,7 @@ position: relative;
         <SliderCSS width={this.state.width}>
           <SliderContent ref={this.ref}>
             {this.props.slides.map((_slide, i) => (
-              <SlideItem width={this.state.width} key={_slide} content={_slide}/> 
+              <SlideItem width={this.state.width} key={_slide} content={_slide.cover} featureContent={_slide}/> 
              
             ))
             }
