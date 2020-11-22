@@ -50,7 +50,7 @@ font-size: 0.9vw;
   //padding: 20px;
   //border: 1px solid #888;
   width: 100%;
-  height: ${ props => props.height/2}px;
+  //height: ${ props => props.height/2}px;
 `;
 const IconM = styled.i`
   //color: #fbf6f696;
@@ -161,6 +161,7 @@ console.log(this.props.modal.open);
   <IconM className="fa fa-times-circle" aria-hidden="true" onClick={()=>{this.toggleHoverState()}}/>
         <Synopsis>
             <div>
+              <SplitImg src={this.props.modal.content.titleimage}/>
              <SplitTitle>{this.props.modal.content.title}</SplitTitle>
           <Info>{this.props.modal.content.year}</Info>
           <Info>+11</Info>

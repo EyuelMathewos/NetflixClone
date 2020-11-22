@@ -16,7 +16,7 @@ export const Synopsis= styled.div`
   top:0;
   bottom:0;
   left:0;
-  padding-top: 230px;
+  padding-top: 150px;
   padding-left: 20px;
   width: 40%;
   color: white;
@@ -28,6 +28,6 @@ export const SplitTitle = styled.h1`
 `;
 
 export const SplitImg = styled.img`
-  height: 100%;
-  width: 100%;
+  height: 125px;
+  width: 90%;
 `;

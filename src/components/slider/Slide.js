@@ -97,7 +97,7 @@ class SlideItem extends React.Component {
         return (
               <Wrapper><Title>{this.props.catagory}</Title></Wrapper>,
             <Slide width={this.props.width} key={this.props.key} content={this.props.content} onMouseEnter={this.handleMouseHover}
-                       onMouseLeave={this.handleMouseHover} onClick={()=>{this.props.updateModal({"open":true,"content":this.props.content})}}>   
+                       onMouseLeave={this.handleMouseHover} onClick={()=>{this.props.updateModal({"open":true,"content":this.props.featureContent})}}>   
             </Slide>
             
         )

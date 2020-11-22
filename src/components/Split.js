@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import wallpaper from './image.jpg';
-//import wallpaper from './img/projectpowerfeature.jpg'
+//import wallpaper from './image.jpg';
+import wallpaper from './img/projectpowerfeature.jpg'
 export const Split = styled.div`
 position: relative;
 background-image: url('${wallpaper}');

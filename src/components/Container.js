@@ -25,8 +25,7 @@ export  const  Container  =  styled.div`
       }
 `;
 export const NavBrand = styled.img`
-  width: 8vw;
-  height: 6vh;
+  width: 13vw;
 `;
 
 export const NavItems = styled.ul`list-style: none;
@@ -92,10 +91,14 @@ export const LinkS = styled.button`
   }
 `;
 export const Icon = styled.i`
-font-size: 32px;
-margin-right: 25px;
-color:red;
-
+  font-size: 32px;
+  margin-right: 25px;
+  color:red;
+  ${props => props.primary && css`
+  font-size: 1em;
+  margin-right: 12px;
+  color:white;
+  `}
   ${props => props.secondary && css`
       font-size: 1em;
       margin-right: 12px;
