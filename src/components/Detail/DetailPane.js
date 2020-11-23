@@ -169,7 +169,7 @@ console.log(this.props.modal.open);
           <a style={{"font-size": "0.9vw"}}s>{this.props.modal.content.movietype}</a>
           <p style={{"font-size": "0.9vw"}}>{this.props.modal.content.about}</p>
          
-                <Button secondary><Icon secondary className="fa fa-play" aria-hidden="true"/>Play</Button>
+                <Button secondary><Icon primary className="fa fa-play" aria-hidden="true"/>Play</Button>
             </div>
             </Synopsis>
         </Split>

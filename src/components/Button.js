@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-
+import { Icon  }  from  "./Container";
 export const Button = styled.button`
   display: inline-block;
   border-radius: 3px;
@@ -21,15 +21,15 @@ export const Button = styled.button`
   `}
   ${props => props.secondary && css`
   padding: 6px 12px;
-  background: #ddd5d5d6;
-  color: black;
+  background: #e50914;
+  color: white;
   border: none;
-  outline:none;
+  //outline:none;
   font-family: Roboto ,Dancing Script,cursive, sans-serif;
-  font-size: 1em;
-  font-weight:bold;
-  margin:1em;
-  padding: 0.25em 1em;
+  // font-size: 1em;
+  // font-weight:bold;
+  // margin:1em;
+  // padding: 0.25em 1em;
   width: 90px;
 `}
   ${props => props.header && css`
@@ -47,5 +47,12 @@ export const Button = styled.button`
     border: 1px solid #1f1f1f;
     font-family: Roboto ,Dancing Script,cursive, sans-serif;
     outline:none;
+    &:hover {
+      color: #1f1f1f;
+      background:white;
+      ${Icon}{
+        color: #1f1f1f;
+      }
+    }
   `}
 `;
