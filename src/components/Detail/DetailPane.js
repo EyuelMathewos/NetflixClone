@@ -4,6 +4,7 @@ import {Icon} from '.././Container';
 import { SplitImg, Split, SplitTitle, Synopsis } from "./Split.js";
 import { Button } from '.././Button';
 import { connect } from 'react-redux';
+import {Link} from "react-router-dom";
 import updateModal from '../../redux/Action/modalAction';
 const DetailPane = styled.div`
   //height: 475px;
@@ -169,7 +170,7 @@ console.log(this.props.modal.open);
           <a style={{"font-size": "0.9vw"}}s>{this.props.modal.content.movietype}</a>
           <p style={{"font-size": "0.9vw"}}>{this.props.modal.content.about}</p>
          
-                <Button secondary><Icon primary className="fa fa-play" aria-hidden="true"/>Play</Button>
+          <Button secondary onClick={()=>{window.location.href='/watch/'+this.props.modal.content.url}}><Icon primary className="fa fa-play" aria-hidden="true"/>Play</Button>
             </div>
             </Synopsis>
         </Split>

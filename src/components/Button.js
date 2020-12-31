@@ -55,4 +55,17 @@ export const Button = styled.button`
       }
     }
   `}
+  ${props => props.fullwidth && css`
+  padding: 16px;
+  background: #e50914;
+  color: white;
+  border: none;
+  //outline:none;
+  font-family: Roboto ,Dancing Script,cursive, sans-serif;
+  font-size: 16px;
+  font-weight:700;
+  // margin:1em;
+  // padding: 0.25em 1em;
+  width: 100%;
+`}
 `;

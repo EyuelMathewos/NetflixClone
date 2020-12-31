@@ -14,7 +14,7 @@ import nine from '../img/episodethree.jpg'
 import ten from '../img/episodefour.jpg'
 import eleven from '../img/one.jpg'
 import Slider from '../slider/Slider.js'
-
+import {movie} from '../movie';
 const content = [one, two, three, four, five, six, seven,eight,nine,ten,eleven]
 export  const  FlexContainer  =  styled.div`
     position: relative;
@@ -24,7 +24,7 @@ export  const  FlexContainer  =  styled.div`
     grid-template-columns: 25% 25% 25% 25%; 
     height: 100%;
     width:100%;
-    background: #ddd5d5;
+    // background: #ddd5d5;
 
     @media (max-width: 1440px) {
          grid-template-columns: 25% 25% 25% 25%; 
@@ -61,7 +61,7 @@ export  const  FlexContainer  =  styled.div`
     text-align: center;
     /* padding: 50px 0px;*/
     margin: 6px;
-    //width:300px;
+    width: ${props => props.width>400?props => (props.width/4)-9:props => props.width/3}px;
     height:300px;
     background-color: white;
     border-radius: 1px;
@@ -71,19 +71,19 @@ export  const  FlexContainer  =  styled.div`
         margin-top: -5px;
       }
 
-    @media (max-width: 1440px) {
-        width:${props => (props.swidth)/4}px;
+    // @media (max-width: 1440px) {
+    //     width:${props => (props.swidth)/4}px;
        
-     }
-     @media (max-width: 1200px) {
-        width:${props => (props.swidth)/4}px;
+    //  }
+    //  @media (max-width: 1200px) {
+    //     width:${props => (props.swidth)/4}px;
        
-     }
-     @media (max-width: 1024px) {
+    //  }
+    //  @media (max-width: 1024px) {
       
-        width:${props => (props.swidth)/4}px;
+    //     width:${props => (props.swidth)/4}px;
        
-     }
+    //  }
      @media (max-width: 768px) {
          
         width:${props => (props.swidth)-9/3}px;
@@ -111,8 +111,8 @@ export class Grid extends React.Component {
         <FlexContainer>
         <CardContainer>
 
-          {content.map((_slide, i) => (
-              <Card swidth={this.state.width} width={this.state.width} key={i} content={_slide}/> 
+          {movie.map((_slide, i) => (
+              <Card swidth={this.state.width} width={this.state.width} key={i} content={_slide.cover} onClick={()=>{window.location.href='/watch/'+_slide.url;}}/> 
             ))
             }
 

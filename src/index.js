@@ -14,7 +14,7 @@ import { Provider } from 'react-redux';
 const middleware = [thunk];
 
 const allReducers = combineReducers({movies: movielistReducer, modal: modalReducer})
-const store = createStore(allReducers, compose( applyMiddleware(...middleware), window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+const store = createStore(allReducers, compose( applyMiddleware(...middleware)));
 
 store.subscribe(()=>{
   console.log(store.getState())

@@ -5,7 +5,7 @@ import  {  Container, Nav ,
   NavItem,
   NavItemButton, 
   Title,
-  Wrapper, Icon,IconWrapper  }  from  "./Container";
+  Wrapper, Icon,IconWrapper, Profilepic  }  from  "./Container";
 
 import '../index.css';
 
@@ -31,6 +31,7 @@ import { movie, movie1, movie2 } from './movie.js';
 import titleimg from './img/powerprojecttitle.png'
 import netflixlogo from './img/netflixlogonew.png'
 import { Grid } from "./Grid/grid"
+import {Link} from "react-router-dom";
 const content = [one, two, three, four, five, six, seven,eight,nine,ten,eleven]
 export class home2 extends React.Component {
     constructor(props) {
@@ -49,9 +50,11 @@ export class home2 extends React.Component {
             <NavItems>
                 {/* <NavItem to="/">Pricing</NavItem>
                 <NavItem to="/">Docs</NavItem> */}
-                <Button primary>JOIN NOW</Button>
-                <Button header>SIGN IN</Button>
-                <Icon type="search"/>
+                <Link to="/signup"><Button primary>JOIN NOW</Button></Link>
+                <Link to="/signin"><Button header>SIGN IN</Button></Link> 
+                {/* <Icon className="fa fa-search" aria-hidden="true"/> */}
+                {/* <Icon profile className="fa fa-square" aria-hidden="true"/> */}
+                {/* <Profilepic/> */}
             </NavItems>
         </Nav>
         <Split>
