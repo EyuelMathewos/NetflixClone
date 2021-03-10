@@ -32,6 +32,7 @@ import titleimg from './img/powerprojecttitle.png'
 import netflixlogo from './img/netflixlogonew.png'
 import { Grid } from "./Grid/grid"
 import {Link} from "react-router-dom";
+import Profilo from "./dropProfilo"
 const content = [one, two, three, four, five, six, seven,eight,nine,ten,eleven]
 export class home2 extends React.Component {
     constructor(props) {
@@ -50,11 +51,11 @@ export class home2 extends React.Component {
             <NavItems>
                 {/* <NavItem to="/">Pricing</NavItem>
                 <NavItem to="/">Docs</NavItem> */}
-                <Link to="/signup"><Button primary>JOIN NOW</Button></Link>
-                <Link to="/signin"><Button header>SIGN IN</Button></Link> 
+                {/* <Link to="/signup"><Button primary>JOIN NOW</Button></Link>
+                <Link to="/signin"><Button header>SIGN IN</Button></Link>  */}
                 {/* <Icon className="fa fa-search" aria-hidden="true"/> */}
                 {/* <Icon profile className="fa fa-square" aria-hidden="true"/> */}
-                {/* <Profilepic/> */}
+                <Profilo/>
             </NavItems>
         </Nav>
         <Split>

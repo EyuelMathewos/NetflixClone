@@ -68,4 +68,17 @@ export const Button = styled.button`
   // padding: 0.25em 1em;
   width: 100%;
 `}
+${props => props.darkfull && css`
+    padding: 6px 12px;
+    margin: 0;
+    color: white;
+    background:#181819;
+    border: 1px solid #181819;
+    font-family: Roboto ,Dancing Script,cursive, sans-serif;
+    outline:none;
+    width: 100%;
+    &:hover {
+      background:#4c4a4a;
+    }
+  `}
 `;

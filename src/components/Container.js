@@ -192,7 +192,7 @@ text-decoration: none;
   color: #737373;
 }
 `;
-export const Profilepic = styled.img`
+export const Profilepic = styled.div`
 width: 36px;
 height: 36px;
 margin-right: 38px;

@@ -62,7 +62,7 @@ export  const  FlexContainer  =  styled.div`
     /* padding: 50px 0px;*/
     margin: 6px;
     width: ${props => props.width>400?props => (props.width/4)-9:props => props.width/3}px;
-    height:300px;
+    height:230px;
     background-color: white;
     border-radius: 1px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
