@@ -8,7 +8,7 @@ import  login  from "./login";
 import {register} from "./register";
 import {watch} from "./watch"
 import { connect } from 'react-redux';
-import checkAuthAction from './redux/Action/userAction';
+import reqAuthAction from './redux/Action/userAction';
 import axios from 'axios';
 //import PrivateRoute from './privateRoute.js'
 var session = require('browser-session-store')
@@ -34,38 +34,41 @@ class Main extends React.Component {
   constructor(props) {
     super(props);
    this.state = {
-      user: this.props.user.signin
+      user: this.props.user.user.signin
     };
   }  
 
-
   componentWillMount() {
-    // this.props.checkAuthAction(true)
-    // console.log("thisis tathe sfda")
-     console.log(this.props.user.user.signin)
-    // this.props.checkAuthAction(true)
-    // console.log(this.props)
+    this.props.reqAuthAction(true)
+  }
 
-    let valdata;
-    session.get('auth', function (err, value) {
-      //=> err === null
-      //=> value === 'bar' 
-      console.log(value) 
-    })
+//   componentWillMount() {
+//     // this.props.checkAuthAction(true)
+//     // console.log("thisis tathe sfda")
+//      console.log(this.props.user.user.signin)
+//     // this.props.checkAuthAction(true)
+//     // console.log(this.props)
 
- console.log("value data"+valdata)
-  axios.get( "http://localhost:3000/api/Accounts/5ff8597f1789ef0b1e6b1b39/accessTokens/HCU6DqBvtcxSFNV2sMJMKiWLovqWRgAZ7GDJaUBf8Zft1HtiJ2MX4KxarIGrA9Yo" )
-  .then(response => {
-    console.log("*****you you token status*****")
-    console.log(response)
-    this.props.checkAuthAction(true);
-    console.log("this is the state of signin")
-    console.log(this.props.user.user.signin)
-  })
-  .catch(error => {
-    console.log("your token is invalid");
-  });
-       }
+//     let valdata;
+//     session.get('auth', function (err, value) {
+//       //=> err === null
+//       //=> value === 'bar' 
+//       console.log(value) 
+//     })
+
+//  console.log("value data"+valdata)
+//   axios.get( "http://localhost:3000/api/Accounts/5ff8597f1789ef0b1e6b1b39/accessTokens/HCU6DqBvtcxSFNV2sMJMKiWLovqWRgAZ7GDJaUBf8Zft1HtiJ2MX4KxarIGrA9Yo" )
+//   .then(response => {
+//     console.log("*****you you token status*****")
+//     console.log(response)
+//     this.props.checkAuthAction(true);
+//     console.log("this is the state of signin")
+//     console.log(this.props.user.user.signin)
+//   })
+//   .catch(error => {
+//     console.log("your token is invalid");
+//   });
+//        }
 
 
     render(){
@@ -73,9 +76,11 @@ class Main extends React.Component {
 
         <Route {...rest} render={(props)=>(
          //need to auth.isAuthenticated to return boolean
+         //localStorage.getItem("authorized")==="true"
         //this.props.user.user.signin===true
-        localStorage.getItem("authorized")==="true"
-         ?<Component {...props}/>
+        //console.log("the state of sign in redux :"+this.props.user.user.signin)
+        //this.props.user.user.signin===false&&<Redirect pathMatch= 'full' to='/signin'/>
+         localStorage.getItem("authorized")==="true"?<Component {...props}/>
          : <Redirect pathMatch= 'full' to='/signin'/>
         )
       
@@ -85,7 +90,7 @@ class Main extends React.Component {
       <Switch>
         <Route exact path="/" component={home2}/>
         <Route exact path="/home" component={home2}/>
-        <PrivateRoute path="/list" user={this.props.user.user.signin} component={listview}/>
+        <PrivateRoute path="/list" component={listview}/>
         <PrivateRoute path="/listview" component={RightList}/>
         <Route path="/signin" component={login}/>
         <Route path="/signup" component={register}/>
@@ -106,7 +111,7 @@ const MapStateToProps = (state) => {
 };
 const MapDispatchToProps = (dispatch) => {
   return{
-    checkAuthAction: (m)=> dispatch(checkAuthAction(m))
+    reqAuthAction: (m)=> dispatch(reqAuthAction(m))
   }
     
   

@@ -7,6 +7,7 @@ import ClientSession from "./service/ClientSession";
 import { connect } from 'react-redux';
 import signinAction from './redux/Action/userAction';
 let values={};
+
 class login extends React.Component {
     constructor(props) {
         super(props);
@@ -14,6 +15,13 @@ class login extends React.Component {
          
         };
          }
+         
+        componentWillMount() {
+          
+          if(localStorage.getItem("authorized")==="true"){
+            window.location="/"
+          }
+        }
 
          handleSubmit = e => {
           e.preventDefault();

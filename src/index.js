@@ -14,11 +14,18 @@ import  userReducer from './redux/reducers/user'
 import  checkAuthAction from './redux/Action/userAction'
 import { Provider } from 'react-redux';
 import axios from 'axios';
-const middleware = [thunk];
+
+
+import createSagaMiddleware from "redux-saga";
+import rootSaga from './redux/Saga/index'
+
+//const middleware = [thunk];
+const SagaMiddleware = createSagaMiddleware();
+const middleware = [SagaMiddleware];
 
 const allReducers = combineReducers({movies: movielistReducer, modal: modalReducer, user:userReducer})
 const store = createStore(allReducers, compose( applyMiddleware(...middleware),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
-
+SagaMiddleware.run(rootSaga);
 
 
 
