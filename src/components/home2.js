@@ -33,6 +33,7 @@ import netflixlogo from './img/netflixlogonew.png'
 import { Grid } from "./Grid/grid"
 import {Link} from "react-router-dom";
 import Profilo from "./dropProfilo"
+import checkauth from '../service/auth';
 const content = [one, two, three, four, five, six, seven,eight,nine,ten,eleven]
 export class home2 extends React.Component {
     constructor(props) {
@@ -55,7 +56,9 @@ export class home2 extends React.Component {
                 <Link to="/signin"><Button header>SIGN IN</Button></Link>  */}
                 {/* <Icon className="fa fa-search" aria-hidden="true"/> */}
                 {/* <Icon profile className="fa fa-square" aria-hidden="true"/> */}
-                <Profilo/>
+                
+                {checkauth()?<Profilo/>: <div><Link to="/signup"><Button primary>JOIN NOW</Button></Link>
+                <Link to="/signin"><Button header>SIGN IN</Button></Link> </div>}
             </NavItems>
         </Nav>
         <Split>

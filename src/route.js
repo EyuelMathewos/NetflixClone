@@ -10,6 +10,8 @@ import {watch} from "./watch"
 import { connect } from 'react-redux';
 import reqAuthAction from './redux/Action/userAction';
 import axios from 'axios';
+import checkauth from './service/auth';
+//import ClientSession from "./service/ClientSession";
 //import PrivateRoute from './privateRoute.js'
 var session = require('browser-session-store')
 let authStatus;
@@ -39,7 +41,9 @@ class Main extends React.Component {
   }  
 
   componentWillMount() {
-    this.props.reqAuthAction(true)
+    this.props.reqAuthAction(true);
+    console.log("this is the state");
+   // console.log(Checkauth());
   }
 
 //   componentWillMount() {
@@ -80,8 +84,12 @@ class Main extends React.Component {
         //this.props.user.user.signin===true
         //console.log("the state of sign in redux :"+this.props.user.user.signin)
         //this.props.user.user.signin===false&&<Redirect pathMatch= 'full' to='/signin'/>
-         localStorage.getItem("authorized")==="true"?<Component {...props}/>
-         : <Redirect pathMatch= 'full' to='/signin'/>
+        
+        //  localStorage.getItem("authorized")==="true"?<Component {...props}/>
+        //  : <Redirect pathMatch= 'full' to='/signin'/>
+        checkauth()?<Component {...props}/>
+          : <Redirect pathMatch= 'full' to='/signin'/>
+        
         )
       
         }/>

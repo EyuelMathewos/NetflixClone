@@ -1,134 +1,148 @@
-import React, { useState, useEffect } from 'react'
-import styled from 'styled-components';
-import { Profilepic } from './Container';
-import { Button } from './Button';
+import React from "react";
+import styled, { css } from "styled-components";
+import {removeAuth} from "../service/auth";
+export const Profilepic = styled.div`
+  width: 36px;
+  height: 36px;
+  margin-right: 38px;
+  background: #e48307;
+  border-radius: 8px;
+  margin: auto;
+  background-image: url("https://avatars3.githubusercontent.com/u/31162254?v=4");
+  background-repeat: no-repeat;
+  background-size: cover;
+`;
 
 const DetailPane = styled.div`
+
   position: relative;
-  z-index: 99;
-  
-  
+  z-index: 1;
+  width: 100px;
 `;
 const ModalDiv = styled.div`
   display: inline; /* Hidden by default */
-  position: fixed; /* Stay in place */
+  position: absolute; /* Stay in place */
   //z-index: 1; /* Sit on top */
   //padding-top: 100px; /* Location of the box */
-  right: 0;
+  //right: 0;
   //top: 0;
   width: 8%; /* Full width */
- // height: 100%; /* Full height */
- // overflow: auto; /* Enable scroll if needed */
-  background-color: rgb(0,0,0); /* Fallback color */
-  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  // height: 100%; /* Full height */
+  // overflow: auto; /* Enable scroll if needed */
+  
 `;
 
+export const Icon = styled.i`
+  font-size: 32px;
+  //margin-right: 25px;
+  color:red;
+  ${(props) =>
+    props.primary &&
+    css`
+      font-size: 1em;
+      margin: 0 6px;
+      color: #afacac;
+      float: left;
+    `}
+  ${(props) =>
+    props.secondary &&
+    css`
+      font-size: 1em;
+      margin-right: 12px;
+      color: black;
+    `}
+  ${(props) =>
+    props.profile &&
+    css`
+      font-size: 36px;
+      margin-right: 38px;
+      color: #e48307;
+    `}
 
+`;
+export const Button = styled.button`
+  color: #afacac;
+  background: #040303;
+  border: none;
+  font-family: Arial;
+  outline: none;
+  width: 100px;
+  padding: 8px 0;
+  &:hover {
+    color: white;
+    background: #e50914;
+    outline: none;
+    ${Icon} {
+      color: white;
+    }
+  }
+`;
 class Profilo extends React.Component {
   constructor(props) {
     super(props);
-   this.state = {
+    this.state = {
       modalState: false,
-      height: window.innerHeight,
+      height: window.innerHeight
     };
     this.ref = React.createRef();
-   // this.handleMouseHover = this.handleMouseHover.bind(this);
+    this.handleClickOutside = this.handleClickOutside.bind(this);
+  }
 
-
-        // this.setWrapperRef = this.setWrapperRef.bind(this);
-        // this.handleClickOutside = this.handleClickOutside.bind(this);
-
-  }  
-  handleMouseHover() {
-
-    //   console.log("this is the ref value");
-    //  console.log(this.ref.current);
-    let valnull= null
-     console.log(typeof(this.ref.current))
-     console.log(this.ref.current)
-     if(this.ref.current<0){
-    //  this.ref.current.div.style.display = "none";
-     console.log("this is the insed of condition")
-     this.setState({
+  toggleHoverState() {
+    this.setState({
       modalState: !this.state.modalState
     });
-    }else{
-      this.setState({
-        modalState: true
-      });
-    }
-    
-    }
-  
-    toggleHoverState() {
-      console.log("this is state form redux open")
-//console.log(this.props.modal.open);
-        this.setState({
-          modalState: !this.state.modalState
-        });
-       // this.props.updateModal(!this.props.modal.open)
-    };  
+  }
 
+  handleClickOutside(event) {
+    console.log(this.ref.current);
+    console.log(event.target);
 
-    handleClickOutside (event){
-     // event.preventDefault();
-      // let valu=
-      console.log("this are the values")
-      //  console.log(this.ref.current)
-      //  console.log(window.event.target)
-     
-       if (this.ref.current == window.event.target) {
-         console.log(this.ref.current.contains(event.target))
-           //alert('You clicked outside of me!');
-           this.setState({
-            modalState: !this.state.modalState
-          });
-        return;
-        
-        // this.props.updateModal(!this.props.modal.open)
-       }
-       this.setState({
-        modalState: false
-      });
-      //  else {
-      //    //alert("this is the other code");
-      //    this.setState({
-      //     modalState: !this.state.modalState
-      //   });
-      //  }
-     }
+    // if (this.ref.current !== event.target) {
+    //   if (this.state.modalState === true) {
+    //     console.log("they are not equal ===");
+    //     this.setState({
+    //       modalState: !this.state.modalState
+    //     });
+    //   }
+    // }
+  }
 
-     componentDidMount() {
-      // document.addEventListener('click', this.handleClickOutside);
-      
-   }
- 
-   componentWillUnmount() {
-      // document.removeEventListener('click', this.handleClickOutside);
-   }
+  componentDidMount() {
+    document.addEventListener("mousedown", this.handleClickOutside);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.handleClickOutside);
+  }
 
   render() {
-    
-      return (
-       
-        <DetailPane>
-          {/* <IconM secondary className="fa fa-play-circle" aria-hidden="true" onClick={()=>{this.toggleHoverState()}}/> */}
-        <Profilepic onClick={()=>{this.toggleHoverState()}}/>
-        {this.state.modalState&&
-        
-<ModalDiv ref={this.ref} onClick={()=>{this.handleClickOutside()}}>
-
-<Button darkfull>Your Profile </Button>
-<Button darkfull>Setting </Button>
-<Button darkfull>Sign out </Button>
-
-</ModalDiv>
-
-
+    return (
+      <DetailPane>
+        <Profilepic
+          onClick={() => {
+            this.toggleHoverState();
+          }}
+        />
+        {this.state.modalState && (
+          <ModalDiv ref={this.ref}>
+            <Button>
+              <Icon primary className="fa fa-user" aria-hidden="true" />
+              Your Profile
+            </Button>
+            <Button>
+              <Icon primary className="fa fa-cog" aria-hidden="true" />
+              Setting
+            </Button>
+            <Button onClick={()=>{removeAuth()}}>
+              <Icon primary className="fa fa-sign-out" aria-hidden="true" />
+              Sign out
+            </Button>
+          </ModalDiv>
+        )}
+      </DetailPane>
+    );
+  }
 }
-   </DetailPane>
-   
-      )}
-    }
 
-    export default Profilo;
+export default Profilo;

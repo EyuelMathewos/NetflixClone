@@ -31,7 +31,8 @@ export class watch extends React.Component {
 
 <div style={{"margin":"30px auto","background-color":"#000000bf","color":"#fff","width":"90%","height":"40%"}}>
 
-<ReactPlayer style={{"outline": "1px"}} config={{ file: { attributes: { controlsList: 'nodownload' } } }} width="100%" height='100%' url={"http://localhost:3000/read/"+this.state.url} controls/>
+<ReactPlayer style={{
+":focus":{"outline": "none"}}} config={{ file: { attributes: { controlsList: 'nodownload' } } }} width="100%" height='100%' url={"http://localhost:3000/read/"+this.state.url} controls/>
 <div>
 <h1 style={{"color":"#737373"}}>Type of movie</h1>
 </div>

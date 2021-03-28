@@ -6,6 +6,8 @@ import UserService from "./service/UserServices";
 import ClientSession from "./service/ClientSession";
 import { connect } from 'react-redux';
 import signinAction from './redux/Action/userAction';
+import jwt from "jsonwebtoken";
+import checkauth from './service/auth';
 let values={};
 
 class login extends React.Component {
@@ -18,7 +20,7 @@ class login extends React.Component {
          
         componentWillMount() {
           
-          if(localStorage.getItem("authorized")==="true"){
+          if(checkauth()){
             window.location="/"
           }
         }
@@ -32,13 +34,21 @@ class login extends React.Component {
               //  console.log(key +":"+ value);
                values[key]=value
               //  console.log(values)
+              
            }
            UserService.login(values.email, values.password)
            .then(response => {
              console.log("*****you singin*****")
              console.log(response)
-             localStorage.setItem("authorized","true");
-             this.props.signinAction(true)
+             let encrypt = jwt.sign(
+              response,
+              "shhhhh"
+            );
+
+             //localStorage.setItem("authorized","true");
+             localStorage.setItem("cuid",encrypt);
+             window.location="/"
+             //this.props.signinAction(true)
            })
            .catch(error => {
              console.log("Incorrect username or password");
