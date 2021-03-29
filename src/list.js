@@ -80,7 +80,7 @@ export class RightList extends React.Component {
           <Meta title={d.filename}/>
         </Card>)
        })}
-       <Player width="426" height="240" src="http://localhost:3000/read/5ed36e35c80cb808ee742a2b"></Player>
+       <Player width="426" height="240" src="http://localhost:3000/read/60602ff0532bd90015d23125"></Player>
      </div>  
 
 
