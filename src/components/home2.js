@@ -69,7 +69,7 @@ export class home2 extends React.Component {
                 <p>
                 An ex-soldier, a teen and a cop collide in New Orleans as they hunt for the source behind a dangerous new pill that grants users temporary superpowers.
                 </p>
-            <Button dark><Icon primary className="fa fa-play" aria-hidden="true"/>Play</Button>
+            <Button dark><Icon primary className="fa fa-play" aria-hidden="true" onClick={()=>{window.location.href='/watch/60602ff0532bd90015d23125'}}/>Play</Button>
             <Button dark><Icon primary className="fa fa-info" aria-hidden="true"/>More info</Button>
 
             </div>
