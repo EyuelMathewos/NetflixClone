@@ -24,7 +24,7 @@ const SagaMiddleware = createSagaMiddleware();
 const middleware = [SagaMiddleware];
 
 const allReducers = combineReducers({movies: movielistReducer, modal: modalReducer, user:userReducer})
-const store = createStore(allReducers, compose( applyMiddleware(...middleware),window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()));
+const store = createStore(allReducers, compose( applyMiddleware(...middleware)));
 SagaMiddleware.run(rootSaga);
 
 
