@@ -72,7 +72,7 @@ const areas = {
   ]
 };
 
-const data =[{"name":"http://localhost:3000/read/5e47f99fb9570d1530799e63"},{"name":"http://localhost:3000/read/5e6df828f86da5030aecead8"},{"name":"http://localhost:3000/read/5e6df87ff86da5030aecf75c"}];
+const data =[{"name":"https://movieapiet.herokuapp.com/read/5e47f99fb9570d1530799e63"},{"name":"http://localhost:3000/read/5e6df828f86da5030aecead8"},{"name":"http://localhost:3000/read/5e6df87ff86da5030aecf75c"}];
 
  const listAnimalsBoxes = data.map(d => (
   <Box
