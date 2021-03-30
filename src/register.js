@@ -19,7 +19,7 @@ export class register extends React.Component {
         for (let [key, value] of data) {
           //  console.log(key +":"+ value);
           values[key] = value;
-          console.log(values);
+          //console.log(values);
         }
         
         UserService.register( values )
