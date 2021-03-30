@@ -10,6 +10,29 @@ export class register extends React.Component {
          
         };
          }
+    
+    handleSubmit = (e) => {
+        e.preventDefault();
+        let data = new FormData(e.target);
+        //let values={};
+        for (let [key, value] of data) {
+          //  console.log(key +":"+ value);
+          values[key] = value;
+          console.log(values);
+        }
+        
+        UserService.register( values )
+           .then(response => {
+             console.log("*****you Registered*****")
+             console.log(response)
+           })
+           .catch(error => {
+             console.log("Incorrect username or password");
+           });
+        
+        
+        
+     };
 
   render() { 
     
@@ -21,12 +44,12 @@ export class register extends React.Component {
 
 <div style={{"margin":"80px auto","padding":"60px 68px 40px","background-color":"#000000bf","color":"#fff","max-width":"314px","min-height":"350px"}}>
 <h1>Sign up</h1>
-<form>
-<FormInput type="text" placeholder="username"/>
-<FormInput type="text" placeholder="Email or Phone number"/>
-<FormInput type="password" placeholder="Password"/>
+<form onSubmit={this.handleSubmit}>
+<FormInput type="text"  name="username" placeholder="username"/>
+<FormInput type="text" name="email" placeholder="Email or Phone number"/>
+<FormInput type="password" name="password" placeholder="Password"/>
 <FormInput type="password" placeholder="confirm Password"/>
-<Button fullwidth>Sign Up</Button>
+<Button fullwidth type="submit">Sign Up</Button>
 <div style={{"display":"flex"}}>
 
 <p style={{"color":"#737373"}}>Already have an account ? <ATag href="/signin"> Sign In Now.</ATag></p>
