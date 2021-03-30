@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import  {  ATag, Nav, NavBrand, FormInput, FullImage }  from  "./components/Container";
 import {Button} from "./components/Button";
 import netflixlogo from './components/img/netflixlogonew.png'
-
+let values={};
 export class register extends React.Component {
     constructor(props) {
         super(props);
