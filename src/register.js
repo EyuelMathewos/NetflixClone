@@ -48,7 +48,7 @@ export class register extends React.Component {
 <FormInput type="text"  name="username" placeholder="username"/>
 <FormInput type="text" name="email" placeholder="Email or Phone number"/>
 <FormInput type="password" name="password" placeholder="Password"/>
-<FormInput type="password" placeholder="confirm Password"/>
+<FormInput type="password" name="realm" placeholder="confirm Password"/>
 <Button fullwidth type="submit">Sign Up</Button>
 <div style={{"display":"flex"}}>
 
