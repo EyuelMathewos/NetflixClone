@@ -129,10 +129,30 @@ export class register extends React.Component {
 <div style={{"margin":"80px auto","padding":"60px 68px 40px","background-color":"#000000bf","color":"#fff","max-width":"314px","min-height":"350px"}}>
 <h1>Sign up</h1>
 <form onSubmit={this.handleSubmit}>
-<FormInput type="text"  name="username" placeholder="username"/>
-<FormInput type="text" name="email" placeholder="Email or Phone number"/>
-<FormInput type="password" name="password" placeholder="Password"/>
-<FormInput type="password" placeholder="confirm Password"/>
+<FormInput type="text"  name="username" placeholder="username" onChange={this.handleChange}/>
+{this.state.usernameError && (
+  <span style={{ color: "red", margin: "0 0.5em" }}>
+  Please Enter valid username
+  </span>
+)}
+<FormInput type="text" name="email" placeholder="Email or Phone number" onChange={this.handleChange}/>
+  {this.state.emailError && (
+     <span style={{ color: "red", margin: "0 0.5em" }}>
+     Please Enter valid email address
+     </span>
+  )}
+<FormInput type="password" name="password" placeholder="Password" onChange={this.handleChange}/>
+  {this.state.passwordError && (
+      <span style={{ color: "red", margin: "0 0.5em" }}>
+      Please Enter valid password
+      </span>
+   )}
+<FormInput type="password" name="confirmPassword" placeholder="confirm Password" onChange={this.handleChange}/>
+   {this.state.confirmPasswordError && (
+     <span style={{ color: "red", margin: "0 0.5em" }}>
+     Please Enter correct confirmation password
+     </span>
+   )}
 <Button fullwidth type="submit">Sign Up</Button>
 <div style={{"display":"flex"}}>
 
