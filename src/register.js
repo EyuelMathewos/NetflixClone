@@ -5,12 +5,87 @@ import netflixlogo from './components/img/netflixlogonew.png'
 import UserService from "./service/UserServices";
 let values={};
 export class register extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-         
-        };
-         }
+  constructor(props) {
+    super(props);
+    this.state = {};
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
+
+  validateEmail(email) {
+    const pattern = /[a-zA-Z0-9]+[\.]?([a-zA-Z0-9]+)?[\@][a-z]{3,9}[\.][a-z]{2,5}/g;
+    const result = pattern.test(email);
+    if (result === true) {
+      this.setState({
+        emailError: false,
+        email: email
+      });
+    } else {
+      this.setState({
+        emailError: true
+      });
+    }
+  }
+
+  handleChange(e) {
+    if (e.target.name === "username") {
+      if (e.target.value === "" || e.target.value === null) {
+        this.setState({
+          usernameError: true
+        });
+      } else {
+        this.setState({
+          usernameError: false,
+          username: e.target.value
+        });
+      }
+    }
+
+    if (e.target.name == "email") {
+      this.validateEmail(e.target.value);
+    }
+    if (e.target.name === "password") {
+      if (e.target.value === "" || e.target.value === null) {
+        this.setState({
+          passwordError: true
+        });
+      } else {
+        this.setState({
+          passwordError: false,
+          password: e.target.value
+        });
+      }
+    }
+    if (e.target.name === "confirmPassword") {
+      if (this.state.password.localeCompare(e.target.value) === 0) {
+        this.setState({
+          confirmPasswordError: false,
+          confirmPassword: e.target.value
+        });
+      } else {
+        this.setState({
+          confirmPasswordError: true
+        });
+      }
+    }
+    if (
+      this.state.usernameError === false &&
+      this.state.emailError === false &&
+      this.state.passwordError === false
+    ) {
+      this.setState({
+        isFormValid: true
+      });
+    } else {
+      this.setState({
+        isFormValid: false
+      });
+    }
+
+    console.log("state :");
+    console.log(this.state);
+  }
+
     
     handleSubmit = (e) => {
         e.preventDefault();
@@ -22,7 +97,11 @@ export class register extends React.Component {
           //console.log(values);
         }
         
-        UserService.register( values )
+
+        
+        if( this.state.isFormValid && (this.state.password === this.state.confirmPassword) ){
+           
+            UserService.register( values )
            .then(response => {
              console.log("*****you Registered*****")
              console.log(response)
@@ -30,6 +109,10 @@ export class register extends React.Component {
            .catch(error => {
              console.log("Incorrect username or password");
            });
+        
+            
+        }
+        
         
         
         
