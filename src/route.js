@@ -87,7 +87,7 @@ class Main extends React.Component {
         
         //  localStorage.getItem("authorized")==="true"?<Component {...props}/>
         //  : <Redirect pathMatch= 'full' to='/signin'/>
-        checkauth()?<Component {...props}/>
+        true?<Component {...props}/>
           : <Redirect pathMatch= 'full' to='/signin'/>
         
         )
