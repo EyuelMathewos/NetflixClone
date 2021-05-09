@@ -21,7 +21,7 @@ export class watch extends React.Component {
           this.setState({
             url:val
           })
-          axios.get('http://localhost:3000/api/container/Movie/files/'+val)
+          axios.get('https://movieapiet.herokuapp.com/api/container/Movie/files/'+val)
           .then(function (response) {
             component.setState({ movietitle: response.data.filename });
       
@@ -43,7 +43,7 @@ export class watch extends React.Component {
 <div style={{"margin":"30px auto","background-color":"#000000bf","color":"#fff","width":"90%","height":"40%"}}>
 
 <ReactPlayer style={{
-":focus":{"outline": "none"}}} config={{ file: { attributes: { controlsList: 'nodownload' } } }} width="100%" height='100%' url={"http://localhost:3000/read/"+this.state.url} controls/>
+":focus":{"outline": "none"}}} config={{ file: { attributes: { controlsList: 'nodownload' } } }} width="100%" height='100%' url={"https://movieapiet.herokuapp.com/read/"+this.state.url} controls/>
 <div>
 <h1 style={{"color":"#737373"}}>{this.state.movietitle.replace(/([.*+?^=!:${}()|\[\]\/\\])/g," ")}</h1>
 </div>
