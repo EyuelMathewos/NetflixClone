@@ -8,7 +8,6 @@ export const Profilepic = styled.div`
   background: #e48307;
   border-radius: 8px;
   margin: auto;
-  background-image: url("https://avatars3.githubusercontent.com/u/31162254?v=4");
   background-repeat: no-repeat;
   background-size: cover;
 `;
@@ -126,11 +125,11 @@ class Profilo extends React.Component {
         />
         {this.state.modalState && (
           <ModalDiv ref={this.ref}>
-            <Button>
+            <Button onClick={()=>{window.location.href='/profile'}}>
               <Icon primary className="fa fa-user" aria-hidden="true" />
               Your Profile
             </Button>
-            <Button>
+            <Button onClick={()=>{window.location.href="/setting"}}>
               <Icon primary className="fa fa-cog" aria-hidden="true" />
               Setting
             </Button>

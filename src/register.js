@@ -7,7 +7,11 @@ let values={};
 export class register extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      messageStatus: false,
+      message: ""
+      
+    };
     this.handleChange = this.handleChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
@@ -105,6 +109,16 @@ export class register extends React.Component {
            .then(response => {
              console.log("*****you Registered*****")
              console.log(response)
+             if(response.success){
+              this.setState({messageStatus: true});
+              this.setState({message: "Registered successfully! you will be redirected to login page"}); 
+              setTimeout( ()=>{window.location="/signin"}, 12000 );
+             }
+
+             if(response.error){
+              this.setState({messageStatus: true});
+              this.setState({message: response.message});
+             }
            })
            .catch(error => {
              console.log("Incorrect username or password");
@@ -129,6 +143,9 @@ export class register extends React.Component {
 <div style={{"margin":"80px auto","padding":"60px 68px 40px","background-color":"#000000bf","color":"#fff","max-width":"314px","min-height":"350px"}}>
 <h1>Sign up</h1>
 <form onSubmit={this.handleSubmit}>
+{this.state.messageStatus&&<div style={{"position":"relative","height":"auto", "padding":"10px 20px","border-radius":"4px","margin":"0.5em" ,"backgroundColor":"#e87c03","font-size":"14px"}}>
+<p style={{"fontSize":"0.9em"}}>{this.state.message}</p>
+</div>}
 <FormInput type="text"  name="username" placeholder="username" onChange={this.handleChange}/>
 {this.state.usernameError && (
   <span style={{ color: "red", margin: "0 0.5em" }}>

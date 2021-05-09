@@ -8,21 +8,25 @@ export  const  Container  =  styled.div`
 
  export const Nav = styled.nav`
     display: flex;
+    position:relative;
     padding: 20px 0 20px 0;
     align-items: center;
     background-color: #181818;
     width: 100%;
     height:25px;
     justify-content: space-between;
-
-    
-
-    @media (max-width: 786px) {
-        flex-direction: column;
-    }
-    @media (max-width: 1024px) {
-        flex-direction: column;
-      }
+    z-index: 1;
+      
+   @media (max-width: 768px) {
+       
+    flex-direction: column;
+     
+   }
+   @media (max-width: 480px) {
+    flex-direction: column;
+    height:12px;
+   }
+   
       ${props => props.secondary && css`
       background-color: #00000080;
       `}

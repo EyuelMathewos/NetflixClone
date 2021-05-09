@@ -14,7 +14,7 @@ class login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-         
+            message: false
         };
          }
          
@@ -40,14 +40,21 @@ class login extends React.Component {
            .then(response => {
              console.log("*****you singin*****")
              console.log(response)
-             let encrypt = jwt.sign(
-              response,
-              "shhhhh"
-            );
+             if(response.success == true){
+              let encrypt = jwt.sign(
+                response,
+                "shhhhh"
+              );
+  
+               //localStorage.setItem("authorized","true");
+               localStorage.setItem("cuid",encrypt);
+               window.location="/"
+             }else{
+               this.setState({message: true})
+               console.log("this is the message"+this.state.message)
+             }
 
-             //localStorage.setItem("authorized","true");
-             localStorage.setItem("cuid",encrypt);
-             window.location="/"
+
              //this.props.signinAction(true)
            })
            .catch(error => {
@@ -67,6 +74,9 @@ class login extends React.Component {
 <div style={{"margin":"80px auto","padding":"60px 68px 40px","background-color":"#000000bf","color":"#fff","max-width":"314px","min-height":"350px"}}>
 <h1>Sign in</h1>
 <form onSubmit={this.handleSubmit}>
+{this.state.message&&<div style={{"position":"relative","height":"auto", "padding":"10px 20px","border-radius":"4px","margin":"0.5em" ,"backgroundColor":"#e87c03","font-size":"14px"}}>
+<p style={{"fontSize":"0.9em"}}>Sorry, we can't find an account with this email address. Please try again or create a new account</p>
+</div>}
 <FormInput type="text" name="email" placeholder="Email or Phone number"/>
 <FormInput type="password" name="password" placeholder="Password"/>
 <Button fullwidth type="submit">Sign in</Button>

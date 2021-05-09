@@ -11,11 +11,11 @@ import { connect } from 'react-redux';
 import reqAuthAction from './redux/Action/userAction';
 import axios from 'axios';
 import checkauth from './service/auth';
+import  { Profile }  from "./components/profile";
 //import ClientSession from "./service/ClientSession";
 //import PrivateRoute from './privateRoute.js'
-var session = require('browser-session-store')
-let authStatus;
 
+import { Setting } from "./components/setting/setting";
 
 // const PrivateRoute = ({component: Component, ...rest}) =>(
 
@@ -41,7 +41,7 @@ class Main extends React.Component {
   }  
 
   componentWillMount() {
-    this.props.reqAuthAction(true);
+    //this.props.reqAuthAction(true);
     console.log("this is the state");
    // console.log(Checkauth());
   }
@@ -103,6 +103,9 @@ class Main extends React.Component {
         <Route path="/signin" component={login}/>
         <Route path="/signup" component={register}/>
         <PrivateRoute path="/watch/:id" component={watch}/>
+        <PrivateRoute path="/profile" component={Profile}/>
+        <PrivateRoute path="/setting" component={Setting}/>
+        
       </Switch>)
     }
 

@@ -13,8 +13,9 @@ function checkauth() {
   }
 
   //Api call for checking the Access to token is valid
- if(decoded != null){
-  axios.get( "https://movieapiet.herokuapp.com/api/Accounts/"+decoded.user.userId+"/accessTokens/"+decoded.user.id )
+ if(decoded != null && decoded.success == true){
+   
+  axios.get( "http://localhost:3000/api/Accounts/"+decoded.user.userId+"/accessTokens/"+decoded.user.id )
   .then(response => {
     //console.log("*****you you token status*****")
     //console.log(response)
@@ -22,7 +23,7 @@ function checkauth() {
     resposeData=response;
   })
   .catch(error => {
-    console.log("your token is invalid");
+    console.log("error occurred requesting for access token validity");
     
   });
   if ( decoded.user.id == decoded.user.id ) {

@@ -72,7 +72,7 @@ const areas = {
   ]
 };
 
-const data =[{"name":"https://movieapiet.herokuapp.com/read/5e47f99fb9570d1530799e63"},{"name":"https://movieapiet.herokuapp.com/read/5e6df828f86da5030aecead8"},{"name":"https://movieapiet.herokuapp.com/read/5e6df87ff86da5030aecf75c"}];
+const data =[{"name":"http://localhost:3000/read/5e47f99fb9570d1530799e63"},{"name":"http://localhost:3000/read/5e6df828f86da5030aecead8"},{"name":"http://localhost:3000/read/5e6df87ff86da5030aecf75c"}];
 
  const listAnimalsBoxes = data.map(d => (
   <Box
@@ -83,7 +83,7 @@ const data =[{"name":"https://movieapiet.herokuapp.com/read/5e47f99fb9570d153079
     justify="center"
     align="center"
   >
-    <ReactPlayer url={'https://movieapiet.herokuapp.com/read/'+d._id} width="400px" height="360px" controls/>
+    <ReactPlayer url={'http://localhost:3000/read/'+d._id} width="400px" height="360px" controls/>
   </Box>
 ));
 
@@ -193,7 +193,7 @@ export class home extends React.Component {
         .map((d, idx) => this.state.Movielist.slice(idx * 4, idx * 4 + 4))
         return carouselView.map(view => {
           const getCarouselItem = () =>
-        view.map(img =><ReactPlayer url={'https://movieapiet.herokuapp.com/read/'+img._id} width="400px" height="360px" controls/>);
+        view.map(img =><ReactPlayer url={'http://localhost:3000/read/'+img._id} width="400px" height="360px" controls/>);
             
           return <Box direction="row">{getCarouselItem()}</Box>;
         });}
