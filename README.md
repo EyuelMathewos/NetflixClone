@@ -2,7 +2,7 @@
 This project is a simplified front end clone of Netflix. It was created with React and Styled Component.
 
 ## Demo Link
-   [https://netflix-clone-et.web.app/] (Live Site Demo)
+   [https://netflix-clone-et.herokuapp.com/] (Live Site Demo)
 
 
 ## Available Scripts
