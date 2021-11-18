@@ -104,7 +104,7 @@ export class register extends React.Component {
 
         
         if( this.state.isFormValid && (this.state.password === this.state.confirmPassword) ){
-           
+           console.log(values);
             UserService.register( values )
            .then(response => {
              console.log("*****you Registered*****")

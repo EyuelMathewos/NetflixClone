@@ -16,7 +16,7 @@ export class watch extends React.Component {
          componentDidMount () {
           let component = this;
           let val= this.props.match.params.id;
-          val=val.replace(/:/,"")
+          val=val.replace(/:/,"");
           console.log(val)
           this.setState({
             url:val
@@ -45,7 +45,7 @@ export class watch extends React.Component {
 <ReactPlayer style={{
 ":focus":{"outline": "none"}}} config={{ file: { attributes: { controlsList: 'nodownload' } } }} width="100%" height='100%' url={"https://movieapiet.herokuapp.com/read/"+this.state.url} controls/>
 <div>
-<h1 style={{"color":"#737373"}}>{this.state.movietitle.replace(/([.*+?^=!:${}()|\[\]\/\\])/g," ")}</h1>
+<h1 style={{"color":"#737373","font-size": "0.7vw;"}}>{this.state.movietitle.replace(/([.*+?^=!:${}()|\[\]\/\\mp4])/g," ")}</h1>
 </div>
 </div>
 

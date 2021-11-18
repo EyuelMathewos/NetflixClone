@@ -36,30 +36,32 @@ class login extends React.Component {
               //  console.log(values)
               
            }
-           UserService.login(values.email, values.password)
-           .then(response => {
-             console.log("*****you singin*****")
-             console.log(response)
-             if(response.success == true){
-              let encrypt = jwt.sign(
-                response,
-                "shhhhh"
-              );
-  
-               //localStorage.setItem("authorized","true");
-               localStorage.setItem("cuid",encrypt);
-               window.location="/"
-             }else{
-               this.setState({message: true})
-               console.log("this is the message"+this.state.message)
-             }
+if(values.email!="" && values.password!=""){
+  UserService.login(values.email, values.password)
+  .then(response => {
+    console.log("*****you singin*****")
+    console.log(response)
+    if(response.success == true){
+     let encrypt = jwt.sign(
+       response,
+       "shhhhh"
+     );
+
+      //localStorage.setItem("authorized","true");
+      localStorage.setItem("cuid",encrypt);
+      window.location="/"
+    }else{
+      this.setState({message: true})
+      console.log("this is the message"+this.state.message)
+    }
 
 
-             //this.props.signinAction(true)
-           })
-           .catch(error => {
-             console.log("Incorrect username or password");
-           });
+    //this.props.signinAction(true)
+  })
+  .catch(error => {
+    console.log("Incorrect username or password");
+  });
+}
 
         }
 

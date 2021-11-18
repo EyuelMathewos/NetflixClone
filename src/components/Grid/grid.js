@@ -21,22 +21,22 @@ export  const  FlexContainer  =  styled.div`
     display: flex; `;
     export  const  CardContainer  =  styled.div`
     display:grid;
-    grid-template-columns: 25% 25% 25% 25%; 
+    grid-template-columns: 33% 33% 33%; 
     height: 100%;
     width:100%;
     // background: #ddd5d5;
 
     @media (max-width: 1440px) {
-         grid-template-columns: 25% 25% 25% 25%; 
+         grid-template-columns:  33% 33% 33%; 
         
       }
       @media (max-width: 1200px) {
-          grid-template-columns: 25% 25% 25% 25%; 
+          grid-template-columns:  33% 33% 33%; 
         
       }
       @media (max-width: 1024px) {
        
-          grid-template-columns: 50% 50%;
+          grid-template-columns:  33% 33% 33%;
         
       }
       @media (max-width: 768px) {
@@ -60,39 +60,27 @@ export  const  FlexContainer  =  styled.div`
     color: red;
     text-align: center;
     /* padding: 50px 0px;*/
-    margin: 6px;
-    width: ${props => props.width>400?props => (props.width/4)-9:props => props.width/3}px;
+    margin: 16px;
+    width: 98%;
     height:230px;
     background-color: white;
     border-radius: 1px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    &:hover {
-        margin-top: -5px;
-      }
-
-    // @media (max-width: 1440px) {
-    //     width:${props => (props.swidth)/4}px;
-       
-    //  }
-    //  @media (max-width: 1200px) {
-    //     width:${props => (props.swidth)/4}px;
-       
-    //  }
-    //  @media (max-width: 1024px) {
-      
-    //     width:${props => (props.swidth)/4}px;
-       
-    //  }
-     @media (max-width: 768px) {
-         
-        width:${props => (props.swidth)-9/3}px;
-       
-     }
-     @media (max-width: 480px) {
-        width:${props => (props.swidth)}px;
-     }
       `;
+    const In = styled.span`
+    border-right:1px solid #a3a3a3;
+    margin-right:9px;
+    padding-right: 11px;
+    font-size: 0.7vw;
+    color: #737373;
+    `;
+    const Title = styled.h1`
+     font-size: 0.9vw;
+     color:#737373;
+    `;
+    const Detail = styled.h1`
+    font-size: 0.7vw;
+    color: #737373;
+   `;
 
 export class Grid extends React.Component {
     constructor(props) {
@@ -120,7 +108,16 @@ export class Grid extends React.Component {
         <CardContainer>
 
           {movie.map((_slide, i) => (
+            <div>
               <Card swidth={this.state.width} width={this.state.width} key={i} content={_slide.cover} onClick={()=>{window.location.href='/watch/'+_slide.url;}}/> 
+              <div style={{"margin": "16px"}}>
+                <Title>{_slide.title}</Title>
+                <In>{_slide.year}</In>
+                <In>{_slide.movietype}</In>
+                <In>{_slide.hours}</In>
+                <Detail>{_slide.about}</Detail>
+                </div>
+            </div>
             ))
             }
 

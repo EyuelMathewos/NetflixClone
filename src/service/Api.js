@@ -6,22 +6,22 @@ const API_BASE_URL = "https://movieapiet.herokuapp.com/api/";
 
 export default class Api {
   static API_BASE_URL = API_BASE_URL;
-  static create(pluralName, data, filter = null) {
+  static create(pluralName, data) {
     let url = API_BASE_URL + pluralName;
-    if (filter) url += "?" + filter;
+    //if (filter) url += "?" + filter;
 
     return new Promise(function(resolve, reject) {
-      ClientSession.getAccessToken(function(isLoggedIn, authData) {
-        if (isLoggedIn && authData != null) {
-          if (filter) url += "&access_token=" + authData.id;
-          else url += "?access_token=" + authData.id;
-        }
+      // ClientSession.getAccessToken(function(isLoggedIn, authData) {
+      //   if (isLoggedIn && authData != null) {
+      //     if (filter) url += "&access_token=" + authData.id;
+      //     else url += "?access_token=" + authData.id;
+      //   }
 
         axios
           .post(url, data)
           .then(response => resolve(response))
           .catch(error => reject(error));
-      });
+     // });
     });
   }
   static createRelated(parentName, childName, id, data) {

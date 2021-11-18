@@ -130,7 +130,7 @@ class UserService {
        * this one will double check if the required field is g fill or not (email and password)
        */
 
-      if (values.email && values.username) {
+      if (values.email!="" && values.username!="") {
           return Api.create(pluralName, values)
               .then(
                   response => {
