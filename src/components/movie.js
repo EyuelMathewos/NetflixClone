@@ -51,4 +51,8 @@ export const movie2 = [
     {"cover":lucycover,"featureimage":lucyfeature,"title":"Lucy", "titleimage":lucytitle, "year":"2020","hours":"2h5m","movietype":"Action","about":"A woman, accidentally caught in a dark deal, turns the tables on her captors and transforms into a merciless warrior evolved beyond human logic.","url":"607892fdee1b350015dfaebe"},
     {"cover":projectpowercover,"featureimage":projectpowerfeature,"title":"Project Power", "titleimage":projectpowertitle, "year":"2020","hours":"2h5m","movietype":"Action","about":"An ex-soldier, a teen and a cop collide in New Orleans as they hunt for the source behind a dangerous new pill that grants users temporary superpowers","url":"60602ff0532bd90015d23125"},
     {"cover":venomcover,"featureimage":venomfeature,"title":"Venom", "titleimage":venomtitle,"year":"2018","hours":"2h5m","movietype":"Action","about":"A reporter battles a mad scientist in a fight for his life after merging with a snarky alien symbiote that gives him remarkable superpowers.","url":"6078908e7d1c2c001558151e"},
+<<<<<<< HEAD
 ]
+=======
+]
+>>>>>>> 3f937429a7d5db560b85c85472b34b033634f93e
