@@ -14,6 +14,18 @@ Youtube Videos of Daniel Zuzevich Links:<br />
 
 ## Demo Link
    [https://netflix-clone-et.herokuapp.com/] (Live Site Demo)
+## Screan Snap Shoot
+
+## Home Page
+<img width="1440" alt="Screenshot 2021-11-21 at 22 55 25" src="https://user-images.githubusercontent.com/31162254/142777128-e3cccfe3-8a44-4813-ace8-573a61ef0904.png">
+## Movie Detail
+<img width="1439" alt="Screenshot 2021-11-21 at 22 55 49" src="https://user-images.githubusercontent.com/31162254/142777145-80df8459-4010-46ea-8a8a-9fdb545acf52.png">
+## Watch Movie
+<img width="1434" alt="Screenshot 2021-11-21 at 22 57 22" src="https://user-images.githubusercontent.com/31162254/142777159-b6822e35-bc07-4add-9b0b-8ff5e082d1b8.png">
+<img width="1436" alt="Screenshot 2021-11-21 at 22 57 31" src="https://user-images.githubusercontent.com/31162254/142777165-9c13d910-86ad-4508-976f-d10d33d2816f.png">
+## Setting
+<img width="1436" alt="Screenshot 2021-11-21 at 22 59 20" src="https://user-images.githubusercontent.com/31162254/142777201-deb63aec-cc42-45f3-beb6-bf9222f36f45.png">
+
 
 
 ## Available Scripts
