@@ -8,10 +8,6 @@ import {Link} from "react-router-dom";
 import Profilo from "../dropProfilo"
 import { Button } from '../Button';
 import checkauth from '../../service/auth';
-<<<<<<< HEAD
-
-export class Setting extends React.Component {
-=======
 import jwt from "jsonwebtoken";
 
 export class Setting extends React.Component {
@@ -35,7 +31,6 @@ export class Setting extends React.Component {
   console.log(decoded);
   this.setState({"userinfo":decoded})
   }
->>>>>>> 3f937429a7d5db560b85c85472b34b033634f93e
     render() {
   return (
     <Container>
@@ -81,11 +76,7 @@ export class Setting extends React.Component {
                     marginTop: "0px"
                   }}
                 >
-<<<<<<< HEAD
-                  netflixaccount@gmail.com
-=======
                  {this.state.userinfo.email}
->>>>>>> 3f937429a7d5db560b85c85472b34b033634f93e
                 </p>
                 <p style={{ color: "#585656", fontFamily: "sans-serif" }}>
                   Password: ********
