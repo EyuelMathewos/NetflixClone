@@ -1,5 +1,16 @@
-## Netflix Clone
-This project is a simplified front end clone of Netflix. It was created with React and Styled Component.
+# Netflix Clone
+
+
+## ⚠️⚠️⚠️ Attention ⚠️⚠️⚠️ This is not a Clone of some one Project. It is my personal Project made all by my self.
+This Project is a simplified Fron-End Clone of Netflix. It is made with React, Redux, Redux-Saga & Styled with Styled-compnents 💅🏾.
+I watched videos made by youtuber called Daniel Zuzevich cool video to watch & make changes to my needs design persentation of content of a page also i made my own slider, watch, Video Streaming, Autenticaion....<br />
+## This project is a working progress with many featurs than most of netflix clone made.
+
+
+
+Youtube Videos of Daniel Zuzevich Links:<br />
+ [https://youtu.be/5FfZkowBz-s?list=LL](Netflix App - 1)<br />
+ [https://youtu.be/NHFZvwDO8e0](Netflix App - 2)
 
 ## Demo Link
    [https://netflix-clone-et.herokuapp.com/] (Live Site Demo)
