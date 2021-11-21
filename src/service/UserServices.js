@@ -31,13 +31,13 @@ class UserService {
                 },
                 error => {
                     if (error.response) {
-                      if (error.response.status == 400) {
+                      if (error.response.status === 400) {
                         return {
                           error: true,
                           message: "Sorry! check your account is banned "
                         }
                       }
-                        if (error.response.status == 401) {
+                        if (error.response.status === 401) {
                             return {
                                 error: true,
                                 message: "Invalid username or password"
@@ -73,7 +73,7 @@ class UserService {
                   },
                   error => {
                       if (error.response) {
-                          if (error.response.status == 401) {
+                          if (error.response.status === 401) {
                               console.log("email sent error");
                               return {
                                   error: true,
@@ -130,12 +130,12 @@ class UserService {
        * this one will double check if the required field is g fill or not (email and password)
        */
 
-      if (values.email!="" && values.username!="") {
+      if (values.email!=="" && values.username!=="") {
           return Api.create(pluralName, values)
               .then(
                   response => {
 
-                      const userId=response.data.id;
+
 
                       return {
                           success: true,
@@ -146,7 +146,7 @@ class UserService {
                   error => {
                       console.log("Error",error);
                       if (error.response) {
-                          if (error.response.status == 422) {
+                          if (error.response.status === 422) {
                               return {
                                   error: true,
                                   message: error.response.data.error.message
@@ -236,6 +236,36 @@ class UserService {
                             message: "Oops error Occurred please. Try Again"
                         }
                 });
+      };
+
+      static getUserDetail = (uid) => {
+    
+   
+        //const url = pluralName + '/Accounts/';
+
+            
+            return Api.find(pluralName , uid)
+                .then(
+                    response => {
+                        return {
+                            user: response.data
+                        }
+                    },
+                    error => {
+                        if (error.response) {
+                            return {
+                                error: true,
+                                message: "Sorry! check your account is banned "
+                              }
+                        }
+                        return {
+                            error: true,
+                            message: "Error: Not connected"
+                        }
+
+                    }
+            );
+        
       };
 }
 

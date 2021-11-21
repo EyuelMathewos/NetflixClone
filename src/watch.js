@@ -1,10 +1,13 @@
-import React, { Component } from "react";
+import React from "react";
 import ReactPlayer from 'react-player';
-import  {  Nav, NavBrand, FormInput, FullImage }  from  "./components/Container";
+import  {  Nav, NavBrand, NavItems }  from  "./components/Container";
 import {Button} from "./components/Button";
 import netflixlogo from './components/img/netflixlogonew.png';
 import { Grid } from "./components/Grid/grid"
 import axios from "axios";
+import {Link} from "react-router-dom";
+import Profilo from "./components/dropProfilo"
+import checkauth from './service/auth';
 export class watch extends React.Component {
     constructor(props) {
         super(props);
@@ -38,7 +41,11 @@ export class watch extends React.Component {
     return(
 
 <div style={{"position":"relative"}}>
-<Nav><NavBrand src={netflixlogo} onClick={()=>{window.location.href='/'}}></NavBrand></Nav>
+<Nav><NavBrand src={netflixlogo} onClick={()=>{window.location.href='/'}}></NavBrand>
+  <NavItems>
+      <Profilo/>
+  </NavItems>
+</Nav>
 
 <div style={{"margin":"30px auto","background-color":"#000000bf","color":"#fff","width":"90%","height":"40%"}}>
 

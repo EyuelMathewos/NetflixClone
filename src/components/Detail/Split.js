@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import wallpaper from '.././image.jpg';
+
 export const Split = styled.div`
 position: relative;
 background-image: url('${props => props.content}');

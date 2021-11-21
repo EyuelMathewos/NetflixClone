@@ -1,8 +1,4 @@
-import React, { Component } from "react";
-
-
-import { Player  } from './components/video/player'
-import { RightList } from './list'
+import React from "react";
 import './index.css';
 import { Grid } from "./components/Grid/grid"
 export class listview extends React.Component {

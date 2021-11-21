@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
   export const Footer = styled.nav`
   display: flex;
   padding: 20px 0 20px 0;

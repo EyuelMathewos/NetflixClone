@@ -1,7 +1,6 @@
-import React, { Component } from 'react';
+import React from 'react';
 import {Switch, Route, Redirect } from 'react-router-dom';
 import  { home }  from "./components/home";
-import  { home2 }  from "./components/home2";
 import { listview } from "./listview";
 import  {RightList}  from "./list";
 import  login  from "./login";
@@ -9,7 +8,6 @@ import {register} from "./register";
 import {watch} from "./watch"
 import { connect } from 'react-redux';
 import reqAuthAction from './redux/Action/userAction';
-import axios from 'axios';
 import checkauth from './service/auth';
 import  { Profile }  from "./components/profile";
 //import ClientSession from "./service/ClientSession";
@@ -96,8 +94,8 @@ class Main extends React.Component {
       );
       return(    
       <Switch>
-        <Route exact path="/" component={home2}/>
-        <Route exact path="/home" component={home2}/>
+        <Route exact path="/" component={home}/>
+        <Route exact path="/home" component={home}/>
         <PrivateRoute path="/list" component={listview}/>
         <PrivateRoute path="/listview" component={RightList}/>
         <Route path="/signin" component={login}/>

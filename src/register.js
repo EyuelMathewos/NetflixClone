@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import  {  ATag, Nav, NavBrand, FormInput, FullImage }  from  "./components/Container";
 import {Button} from "./components/Button";
 import netflixlogo from './components/img/netflixlogonew.png'
@@ -45,7 +45,7 @@ export class register extends React.Component {
       }
     }
 
-    if (e.target.name == "email") {
+    if (e.target.name === "email") {
       this.validateEmail(e.target.value);
     }
     if (e.target.name === "password") {

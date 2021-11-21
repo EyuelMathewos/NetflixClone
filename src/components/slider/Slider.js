@@ -1,11 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import SliderContent from './SliderContent'
 import Slide from './Slide'
 import Arrow from './Arrow'
-import Dots from './Dots'
-import {Icon} from '../Container'
-import leftArrow from '../img/left-arrow.svg'
+
 
 const SliderCSS = styled.div`
   position: relative;
@@ -22,11 +20,6 @@ const getWidth = () => window.innerWidth
  */
 const Slider = props => {
   const { slides } = props
-
-  const firstSlide = slides[0]
-  const secondSlide = slides[1]
-  const fourthSlide = slides[2]
-  const lastSlide = slides[slides.length - 1]
 
   const [state, setState] = useState({
     activeSlide: 4,

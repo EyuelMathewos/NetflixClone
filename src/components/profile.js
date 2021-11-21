@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import  {  Container, Nav ,
   NavBrand,
   NavItems  }  from  "./Container";
@@ -6,17 +6,9 @@ import { Profilepic, Main, Hr, FormInput, CardContainer, Card, FlexContainer } f
 
 import '../index.css';
 
-
 import { Button } from './Button';
 import {Footer} from './Footer';
-import NewSlider from './slider/newslider.js'
-import Slider from './slider/Slider.js'
-import images from './slider/images'
-import Modal from './Detail/DetailPane'
-import { movie, movie1, movie2 } from './movie.js';
-import titleimg from './img/powerprojecttitle.png'
 import netflixlogo from './img/netflixlogonew.png'
-import { Grid } from "./Grid/grid"
 import {Link} from "react-router-dom";
 import Profilo from "./dropProfilo"
 import checkauth from '../service/auth';

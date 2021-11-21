@@ -53,7 +53,7 @@ function checkauth() {
 
 export function removeAuth() {
   console.log("************ remove auth ************")
-  localStorage.removeItem("cuid");
+  localStorage.clear();
   window.location="/";
 }
 export default checkauth;

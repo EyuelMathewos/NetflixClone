@@ -1,5 +1,4 @@
-import React from 'react'
-import styled, { css } from 'styled-components';
+import styled from 'styled-components';
 import leftArrow from '../img/left-arrow.svg'
 import rightArrow from '../img/right-arrow.svg'
 
@@ -34,14 +33,7 @@ import rightArrow from '../img/right-arrow.svg'
 //     {direction === 'right' ? <img src={rightArrow} /> : <img src={leftArrow} />}
 //   </div>
 // )
-const SImage=styled.img`
-height: 100%;
-width: ${props => props.width}px;
-background-image: url('${props => props.content}');
-background-size: cover;
-background-repeat: no-repeat;
-background-position: center;     
-`;
+
 
 const Arrow = styled.div`
       display: flex;

@@ -1,10 +1,7 @@
-import React, { useCallback, useLayoutEffect, useState } from 'react'
-import { Link } from 'react-router-dom';
+import React from 'react';
 import styled, { css } from 'styled-components';
-import { LinkS, Wrapper, Title} from '.././Container';
-import Modal from '../Detail/DetailPane'
+import { Wrapper, Title} from '.././Container';
 import { connect } from 'react-redux';
-import updateMovies from '../../redux/Action/addMovie'
 import updateModal from '../../redux/Action/modalAction'
 //const Modaltype = <Modal status={true}/>;
 export const Slide = styled.div`

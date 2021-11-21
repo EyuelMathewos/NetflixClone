@@ -254,7 +254,7 @@ seekbarcal(e){
        </div>       
          
           <Items>
-              {this.state.playingstatus=="Pause"?<Icon secondary style={{"font-size":"18px", "paddingLeft":"20px"}} onClick={()=>{this.playVideo()}} className="fa fa-play"  />:<Icon secondary style={{"font-size":"18px", "paddingLeft":"20px"}} onClick={()=>{this.pauseVideo()}} className="fa fa-pause"  />}
+              {this.state.playingstatus==="Pause"?<Icon secondary style={{"font-size":"18px", "paddingLeft":"20px"}} onClick={()=>{this.playVideo()}} className="fa fa-play"  />:<Icon secondary style={{"font-size":"18px", "paddingLeft":"20px"}} onClick={()=>{this.pauseVideo()}} className="fa fa-pause"  />}
               
               <p style={{"color":"#fff","font-size":"12px", "margin":"0px"}}>{hour+":"+minutes+" / "+durHour+":"+durMin}</p>
               <Vol >
@@ -263,7 +263,7 @@ seekbarcal(e){
               </Vol>
               <IconWrapper>
               
-              {this.state.fulls=="min"?<Icon secondary style={{"font-size":"18px"}}  onClick={()=>{this.fullscrean()}} className="fa fa-expand"  />:<Icon secondary style={{"font-size":"18px"}}  onClick={()=>{this.fullscrean()}} className="fa fa-compress"  />}</IconWrapper>
+              {this.state.fulls==="min"?<Icon secondary style={{"font-size":"18px"}}  onClick={()=>{this.fullscrean()}} className="fa fa-expand"  />:<Icon secondary style={{"font-size":"18px"}}  onClick={()=>{this.fullscrean()}} className="fa fa-compress"  />}</IconWrapper>
           </Items>
         </Controls>
        

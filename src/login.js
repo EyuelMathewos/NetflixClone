@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import  {  Nav, NavBrand, FormInput, FullImage }  from  "./components/Container";
 import {Button} from "./components/Button";
 import netflixlogo from './components/img/netflixlogonew.png';
@@ -14,7 +14,8 @@ class login extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            message: false
+            message: false,
+            messageContent:""
         };
          }
          
@@ -24,6 +25,7 @@ class login extends React.Component {
             window.location="/"
           }
         }
+        
 
          handleSubmit = e => {
           e.preventDefault();
@@ -46,13 +48,36 @@ if(values.email!="" && values.password!=""){
        response,
        "shhhhh"
      );
+console.log(response.user.userId);
+          UserService.getUserDetail(response.user.userId)
+        .then(response => {
+          console.log("*****user info*****")
+          console.log(response)
 
+          let encrypt2 = jwt.sign(
+            response.user,
+            "shhhhh"
+          );
+
+
+            //localStorage.setItem("authorized","true");
+            localStorage.setItem("uif",encrypt2);
+            //window.location="/"
+          
+
+          //this.props.signinAction(true)
+        })
+        .catch(error => {
+          console.log("connection loss");
+        });
       //localStorage.setItem("authorized","true");
       localStorage.setItem("cuid",encrypt);
-      window.location="/"
+      //window.location="/"
     }else{
-      this.setState({message: true})
-      console.log("this is the message"+this.state.message)
+      this.setState({message: true,
+        messageContent:response.message
+      })
+      console.log("this is the message"+this.state.messageContent)
     }
 
 
@@ -60,6 +85,10 @@ if(values.email!="" && values.password!=""){
   })
   .catch(error => {
     console.log("Incorrect username or password");
+  });
+}else{
+  this.setState({message: true,
+    messageContent: "Incorrect username or password"
   });
 }
 
@@ -77,7 +106,7 @@ if(values.email!="" && values.password!=""){
 <h1>Sign in</h1>
 <form onSubmit={this.handleSubmit}>
 {this.state.message&&<div style={{"position":"relative","height":"auto", "padding":"10px 20px","border-radius":"4px","margin":"0.5em" ,"backgroundColor":"#e87c03","font-size":"14px"}}>
-<p style={{"fontSize":"0.9em"}}>Sorry, we can't find an account with this email address. Please try again or create a new account</p>
+<p style={{"fontSize":"0.9em"}}>{this.state.messageContent}</p>
 </div>}
 <FormInput type="text" name="email" placeholder="Email or Phone number"/>
 <FormInput type="password" name="password" placeholder="Password"/>

@@ -1,16 +1,5 @@
-import React, { Component } from "react";
-import ReactPlayer from 'react-player'
-import qs from 'qs';
-import {
-  BrowserRouter as Router,
-  Route,
-  Link,
-  Redirect,
-  withRouter
-} from "react-router-dom";
-import {
-    Card, Row, Col, List
-} from 'antd';
+import React from "react";
+import { Card } from 'antd';
 import axios from 'axios';
 import {Player} from "./components/video/player"
 import './index.css';

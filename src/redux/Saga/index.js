@@ -1,8 +1,6 @@
 import { put, takeLatest, all } from 'redux-saga/effects';
-import axios from 'axios';
-import qs from 'qs';
 
-let data;
+
 function* helloSaga() {
   yield console.log('Hello Sagas!')
   }

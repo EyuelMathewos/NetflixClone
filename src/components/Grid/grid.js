@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import "./gridStyle.css";
 import images from '../slider/images'
 import one from '../img/one.jpg'
 import two from '../img/two.jpg'

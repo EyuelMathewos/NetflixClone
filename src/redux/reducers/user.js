@@ -1,6 +1,3 @@
-import UserService from "../../service/UserServices";
-import axios from "axios";
-
 import {SIGNIN} from "../Action/userAction";
 import {CHECK_AUTH_STATUS} from "../Action/userAction";
 

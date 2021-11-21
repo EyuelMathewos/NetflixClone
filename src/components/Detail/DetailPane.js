@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react';
 import styled, { css } from 'styled-components';
 import {Icon} from '.././Container';
 import { SplitImg, Split, SplitTitle, Synopsis } from "./Split.js";

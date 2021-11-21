@@ -47,18 +47,18 @@ export default class Api {
 
 
     return new Promise(function(resolve, reject) {
-      ClientSession.getAccessToken(function(isLoggedIn, authData) {
-        if (isLoggedIn && authData != null) {
-          if (filter) url += "&access_token=" + authData.id;
-          else url += "?access_token=" + authData.id;
-        }
+      // ClientSession.getAccessToken(function(isLoggedIn, authData) {
+      //   if (isLoggedIn && authData != null) {
+      //     if (filter) url += "&access_token=" + authData.id;
+      //     else url += "?access_token=" + authData.id;
+      //   }
 
         // console.log("The Url is ",url);
         axios
           .get(url)
           .then(response => resolve(response))
           .catch(error => reject(error));
-      });
+      //});
     });
   }
   static findRelated(parentName, childName, id, filter) {
