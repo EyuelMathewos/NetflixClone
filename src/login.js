@@ -72,7 +72,7 @@ console.log(response.user.userId);
         });
       //localStorage.setItem("authorized","true");
       localStorage.setItem("cuid",encrypt);
-      //window.location="/"
+      window.location="/"
     }else{
       this.setState({message: true,
         messageContent:response.message
