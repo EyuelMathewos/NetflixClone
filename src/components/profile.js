@@ -14,7 +14,7 @@ import Profilo from "./dropProfilo"
 import checkauth from '../service/auth';
 import jwt from "jsonwebtoken";
 
-export class Profile extends React.Component {
+export class profile extends React.Component {
   constructor(props) {
     super(props);
     this.state = {

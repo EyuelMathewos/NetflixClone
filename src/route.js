@@ -8,11 +8,11 @@ import {watch} from "./watch"
 import { connect } from 'react-redux';
 import reqAuthAction from './redux/Action/userAction';
 import checkauth from './service/auth';
-import  { Profile }  from "./components/profile";
+import  {profile}  from "./components/profile";
 //import ClientSession from "./service/ClientSession";
 //import PrivateRoute from './privateRoute.js'
 
-import { Setting } from "./components/setting/setting";
+import {setting} from "./components/setting/setting";
 
 // const PrivateRoute = ({component: Component, ...rest}) =>(
 
@@ -99,8 +99,8 @@ class Main extends React.Component {
         <Route path="/signin" component={login}/>
         <Route path="/signup" component={register}/>
         <PrivateRoute path="/watch/:id" component={watch}/>
-        <PrivateRoute path="/profile" component={Profile}/>
-        <PrivateRoute path="/setting" component={Setting}/>
+        <PrivateRoute path="/profile" component={profile}/>
+        <PrivateRoute path="/setting" component={setting}/>
         
       </Switch>)
     }

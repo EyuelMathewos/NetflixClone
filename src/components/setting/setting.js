@@ -10,7 +10,7 @@ import { Button } from '../Button';
 import checkauth from '../../service/auth';
 import jwt from "jsonwebtoken";
 
-export class Setting extends React.Component {
+export class setting extends React.Component {
 
   constructor(props) {
     super(props);
@@ -114,4 +114,4 @@ export class Setting extends React.Component {
   );
 }}
 
-export default Setting;
+export default setting;
