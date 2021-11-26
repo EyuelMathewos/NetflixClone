@@ -62,7 +62,7 @@ console.log(response.user.userId);
 
             //localStorage.setItem("authorized","true");
             localStorage.setItem("uif",encrypt2);
-            //window.location="/"
+            window.location="/"
           
 
           //this.props.signinAction(true)

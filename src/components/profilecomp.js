@@ -14,7 +14,7 @@ export const Profilepic = styled.div`
 export const Main = styled.div`
   position: relative;
   background: #060606;
-  width: 40%;
+  width: 60%;
   height: 900px;
   margin: auto;
   @media (max-width: 480px) {

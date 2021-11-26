@@ -1,7 +1,6 @@
 import React from 'react';
 import {Switch, Route, Redirect } from 'react-router-dom';
 import  { home }  from "./components/home";
-import { listview } from "./listview";
 import  {RightList}  from "./list";
 import  login  from "./login";
 import {register} from "./register";
@@ -96,7 +95,6 @@ class Main extends React.Component {
       <Switch>
         <Route exact path="/" component={home}/>
         <Route exact path="/home" component={home}/>
-        <PrivateRoute path="/list" component={listview}/>
         <PrivateRoute path="/listview" component={RightList}/>
         <Route path="/signin" component={login}/>
         <Route path="/signup" component={register}/>
