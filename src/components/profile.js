@@ -67,7 +67,7 @@ export class profile extends React.Component {
           </Card>
 
           <Card>
-          {/* <FormInput width="50%" placeholder="user name" value={this.state.userinfo.username} />*/}
+          <FormInput width="50%" placeholder="user name" value={this.state.userinfo.username} />
             <h3 style={{ color: "#b9b5b5", fontFamily: "sans-serif",margin: "8px" }}>Language :</h3>
             <FormInput width="25%"placeholder="Language" /><br/>
             <Hr/>

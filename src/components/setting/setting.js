@@ -76,7 +76,7 @@ export class setting extends React.Component {
                     marginTop: "0px"
                   }}
                 >
-                    {/*{this.state.userinfo.email}*/}
+                    {this.state.userinfo.email}
                 </p>
                 <p style={{ color: "#585656", fontFamily: "sans-serif" }}>
                   Password: ********
