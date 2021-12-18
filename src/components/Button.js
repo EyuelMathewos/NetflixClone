@@ -64,8 +64,8 @@ export const Button = styled.button`
   font-family: Roboto ,Dancing Script,cursive, sans-serif;
   font-size: 16px;
   font-weight:700;
-  // margin:1em;
-  // padding: 0.25em 1em;
+  padding: 8px;
+  margin: 8px;
   width: 100%;
 `}
 ${props => props.darkfull && css`

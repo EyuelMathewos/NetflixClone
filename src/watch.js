@@ -52,7 +52,7 @@ export class watch extends React.Component {
 <ReactPlayer style={{
 ":focus":{"outline": "none"}}} config={{ file: { attributes: { controlsList: 'nodownload' } } }} width="100%" height='100%' url={"https://movieapiet.herokuapp.com/read/"+this.state.url} controls/>
 <div>
-<h1 style={{"color":"#737373"}}>{this.state.movietitle.replace(/([.*+?^=!:${}()|\[\]\/\\])/g," ")}</h1>
+<h1 style={{"color":"#737373"}}>{this.state.movietitle.replace(/([.*+?^=!:${}()|\[\]\/\\])mp4/g," ")}</h1>
 </div>
 </div>
 
