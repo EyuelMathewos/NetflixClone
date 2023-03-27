@@ -1,8 +1,7 @@
 import axios from "axios";
 import ClientSession from "./ClientSession";
 
-const API_BASE_URL = "https://movieapiet.herokuapp.com/api/";
-
+const API_BASE_URL = "https://netflix-hi7l.onrender.com/api/";
 
 export default class Api {
   static API_BASE_URL = API_BASE_URL;
@@ -10,32 +9,32 @@ export default class Api {
     let url = API_BASE_URL + pluralName;
     //if (filter) url += "?" + filter;
 
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
       // ClientSession.getAccessToken(function(isLoggedIn, authData) {
       //   if (isLoggedIn && authData != null) {
       //     if (filter) url += "&access_token=" + authData.id;
       //     else url += "?access_token=" + authData.id;
       //   }
 
-        axios
-          .post(url, data)
-          .then(response => resolve(response))
-          .catch(error => reject(error));
-     // });
+      axios
+        .post(url, data)
+        .then((response) => resolve(response))
+        .catch((error) => reject(error));
+      // });
     });
   }
   static createRelated(parentName, childName, id, data) {
     let url = API_BASE_URL + parentName + "/" + id + "/" + childName;
 
-    return new Promise(function(resolve, reject) {
-      ClientSession.getAccessToken(function(isLoggedIn, authData) {
+    return new Promise(function (resolve, reject) {
+      ClientSession.getAccessToken(function (isLoggedIn, authData) {
         if (isLoggedIn && authData != null) {
           url += "?access_token=" + authData.id;
         }
         axios
           .post(url, data)
-          .then(response => resolve(response))
-          .catch(error => reject(error));
+          .then((response) => resolve(response))
+          .catch((error) => reject(error));
       });
     });
   }
@@ -45,19 +44,18 @@ export default class Api {
     if (id) url += "/" + id;
     if (filter) url += "?" + filter;
 
-
-    return new Promise(function(resolve, reject) {
+    return new Promise(function (resolve, reject) {
       // ClientSession.getAccessToken(function(isLoggedIn, authData) {
       //   if (isLoggedIn && authData != null) {
       //     if (filter) url += "&access_token=" + authData.id;
       //     else url += "?access_token=" + authData.id;
       //   }
 
-        // console.log("The Url is ",url);
-        axios
-          .get(url)
-          .then(response => resolve(response))
-          .catch(error => reject(error));
+      // console.log("The Url is ",url);
+      axios
+        .get(url)
+        .then((response) => resolve(response))
+        .catch((error) => reject(error));
       //});
     });
   }
@@ -67,8 +65,8 @@ export default class Api {
     // if(id) url += '/' + id;
     if (filter) url += "?" + filter;
 
-    return new Promise(function(resolve, reject) {
-      ClientSession.getAccessToken(function(isLoggedIn, authData) {
+    return new Promise(function (resolve, reject) {
+      ClientSession.getAccessToken(function (isLoggedIn, authData) {
         if (isLoggedIn && authData != null) {
           if (filter) url += "&access_token=" + authData.id;
           else url += "?access_token=" + authData.id;
@@ -76,37 +74,45 @@ export default class Api {
 
         axios
           .get(url)
-          .then(response => resolve(response))
-          .catch(error => reject(error));
+          .then((response) => resolve(response))
+          .catch((error) => reject(error));
       });
     });
   }
 
-  static update(pluralName, id, data){
-    let url = API_BASE_URL + pluralName + '/' + id;
+  static update(pluralName, id, data) {
+    let url = API_BASE_URL + pluralName + "/" + id;
 
     return new Promise(function (resolve, reject) {
       ClientSession.getAccessToken(function (isLoggedIn, authData) {
-        if(isLoggedIn && authData != null){
-          url += '?access_token='+ authData.id;
+        if (isLoggedIn && authData != null) {
+          url += "?access_token=" + authData.id;
         }
         console.log(url);
         axios({
-          method:'patch',
-          url:url,
-          data : data
-        }).then(response => resolve(response))
-          .catch(error => reject(error));
+          method: "patch",
+          url: url,
+          data: data,
+        })
+          .then((response) => resolve(response))
+          .catch((error) => reject(error));
       });
     });
   }
 
-
   static updateRelated(parentName, childName, parentId, childId, data) {
-    let url = API_BASE_URL + parentName + "/" + parentId + "/" + childName + "/" + childId;
+    let url =
+      API_BASE_URL +
+      parentName +
+      "/" +
+      parentId +
+      "/" +
+      childName +
+      "/" +
+      childId;
 
-    return new Promise(function(resolve, reject) {
-      ClientSession.getAccessToken(function(isLoggedIn, authData) {
+    return new Promise(function (resolve, reject) {
+      ClientSession.getAccessToken(function (isLoggedIn, authData) {
         if (isLoggedIn && authData != null) {
           url += "?access_token=" + authData.id;
         }
@@ -114,27 +120,27 @@ export default class Api {
         axios({
           method: "put",
           url: url,
-          data: data
+          data: data,
         })
-          .then(response => resolve(response))
-          .catch(error => reject(error));
+          .then((response) => resolve(response))
+          .catch((error) => reject(error));
       });
     });
   }
   static destroy(pluralName, id) {
     let url = API_BASE_URL + pluralName + "/" + id;
 
-    return new Promise(function(resolve, reject) {
-      ClientSession.getAccessToken(function(isLoggedIn, authData) {
+    return new Promise(function (resolve, reject) {
+      ClientSession.getAccessToken(function (isLoggedIn, authData) {
         if (isLoggedIn && authData != null) {
           url += "?access_token=" + authData.id;
         }
         axios({
           method: "delete",
-          url: url
+          url: url,
         })
-          .then(response => resolve(response))
-          .catch(error => reject(error));
+          .then((response) => resolve(response))
+          .catch((error) => reject(error));
       });
     });
   }
@@ -145,8 +151,8 @@ export default class Api {
     let formData = new FormData();
     formData.append("where", JSON.stringify(whereJSON));
 
-    return new Promise(function(resolve, reject) {
-      ClientSession.getAccessToken(function(isLoggedIn, authData) {
+    return new Promise(function (resolve, reject) {
+      ClientSession.getAccessToken(function (isLoggedIn, authData) {
         if (isLoggedIn && authData != null) {
           url += "?access_token=" + authData.id;
         }
@@ -155,12 +161,12 @@ export default class Api {
           method: "delete",
           url: url,
           headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
+            "Content-Type": "application/x-www-form-urlencoded",
           },
-          data: "where=" + JSON.stringify(whereJSON)
+          data: "where=" + JSON.stringify(whereJSON),
         })
-          .then(response => resolve(response))
-          .catch(error => reject(error));
+          .then((response) => resolve(response))
+          .catch((error) => reject(error));
       });
     });
   }
@@ -170,42 +176,42 @@ export default class Api {
     let config = {
       onUploadProgress: progressCallback,
       headers: {
-        "Content-Type": "application/x-www-form-urlencoded"
-      }
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
     };
 
     // console.log("The files are ",files);
     let data = new FormData();
     for (let i in files) data.append("data", files[i]);
 
-    return new Promise(function(resolve, reject) {
-      ClientSession.getAccessToken(function(isLoggedIn, authData) {
+    return new Promise(function (resolve, reject) {
+      ClientSession.getAccessToken(function (isLoggedIn, authData) {
         if (isLoggedIn && authData != null) {
           url += "?access_token=" + authData.id;
         }
 
         axios
           .post(url, data, config)
-          .then(response => resolve(response))
-          .catch(error => reject(error));
+          .then((response) => resolve(response))
+          .catch((error) => reject(error));
       });
     });
   }
   static deleteFile(container, file) {
     let url = API_BASE_URL + "containers/" + container + "/files/" + file;
 
-    return new Promise(function(resolve, reject) {
-      ClientSession.getAccessToken(function(isLoggedIn, authData) {
+    return new Promise(function (resolve, reject) {
+      ClientSession.getAccessToken(function (isLoggedIn, authData) {
         if (isLoggedIn && authData != null) {
           url += "?access_token=" + authData.id;
         }
 
         axios({
           method: "delete",
-          url: url
+          url: url,
         })
-          .then(response => resolve(response))
-          .catch(error => reject(error));
+          .then((response) => resolve(response))
+          .catch((error) => reject(error));
       });
     });
   }
@@ -213,46 +219,43 @@ export default class Api {
     let url = API_BASE_URL + "containers/deleteFiles";
     let options = { container, files };
 
-    return new Promise(function(resolve, reject) {
-      ClientSession.getAccessToken(function(isLoggedIn, authData) {
+    return new Promise(function (resolve, reject) {
+      ClientSession.getAccessToken(function (isLoggedIn, authData) {
         if (isLoggedIn && authData != null) {
           url += "?access_token=" + authData.id;
         }
 
         axios
           .post(url, options)
-          .then(response => resolve(response))
-          .catch(error => reject(error));
+          .then((response) => resolve(response))
+          .catch((error) => reject(error));
       });
     });
   }
   static replace(pluralName, data) {
     let url = API_BASE_URL + pluralName;
 
-    return new Promise(function(resolve, reject) {
-      ClientSession.getAccessToken(function(isLoggedIn, authData) {
+    return new Promise(function (resolve, reject) {
+      ClientSession.getAccessToken(function (isLoggedIn, authData) {
         if (isLoggedIn && authData != null) {
           url += "?access_token=" + authData.id;
         }
         axios
           .put(url, data)
-          .then(response => resolve(response))
-          .catch(error => reject(error));
+          .then((response) => resolve(response))
+          .catch((error) => reject(error));
       });
     });
   }
-  static checkAuthToken(pluralName, uid,tokenid) {
-    let url = API_BASE_URL + pluralName+"/"+uid+"/accessTokens/"+tokenid;
-    console.log(url)
-    return new Promise(function(resolve, reject) {
-    
-        axios
-          .get(url)
-          .then(response => resolve(response))
-          .catch(error => reject(error));
-     
+  static checkAuthToken(pluralName, uid, tokenid) {
+    let url =
+      API_BASE_URL + pluralName + "/" + uid + "/accessTokens/" + tokenid;
+    console.log(url);
+    return new Promise(function (resolve, reject) {
+      axios
+        .get(url)
+        .then((response) => resolve(response))
+        .catch((error) => reject(error));
     });
   }
-
-  
 }

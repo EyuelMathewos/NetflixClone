@@ -13,47 +13,41 @@ function checkauth() {
   }
 
   //Api call for checking the Access to token is valid
- if(decoded != null && decoded.success == true){
-   
-  axios.get( "https://movieapiet.herokuapp.com/api/Accounts/"+decoded.user.userId+"/accessTokens/"+decoded.user.id )
-  .then(response => {
-    //console.log("*****you you token status*****")
-    //console.log(response)
-    
-    resposeData=response;
-  })
-  .catch(error => {
-    console.log("error occurred requesting for access token validity");
-    
-  });
-  if ( decoded.user.id == decoded.user.id ) {
-    return true;
+  if (decoded != null && decoded.success == true) {
+    axios
+      .get(
+        "https://netflix-hi7l.onrender.com/api/Accounts/" +
+          decoded.user.userId +
+          "/accessTokens/" +
+          decoded.user.id
+      )
+      .then((response) => {
+        //console.log("*****you you token status*****")
+        //console.log(response)
+
+        resposeData = response;
+      })
+      .catch((error) => {
+        console.log("error occurred requesting for access token validity");
+      });
+    if (decoded.user.id == decoded.user.id) {
+      return true;
+    } else {
+      return false;
+    }
   } else {
     return false;
   }
 
-
- }
- else{
-  return false;
- }
-
-
-
-
-
-
-
   //console.log("api response")
   //console.log(decoded.user.id)
-
 
   // return decoded;
 }
 
 export function removeAuth() {
-  console.log("************ remove auth ************")
+  console.log("************ remove auth ************");
   localStorage.clear();
-  window.location="/";
+  window.location = "/";
 }
 export default checkauth;
